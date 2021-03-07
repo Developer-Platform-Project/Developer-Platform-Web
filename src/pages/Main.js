@@ -1,6 +1,5 @@
 import React from 'react';
 import Header from '../components/Common/Header';
-import StyledContainer from '../components/Common/styles/StyledContainer';
 import MainProfile from '../components/Main/MainProfile';
 import MainImage from '../components/Main/MainImage';
 import MainStudy from '../components/Main/MainStudy';
@@ -10,7 +9,7 @@ import MainCommunity from '../components/Main/MainCommunity';
 
 const Main = () => {
   return (
-    <StyledContainer>
+    <div>
       <Header/>
       <MainImage/>
       <MainStudy/>
@@ -18,7 +17,7 @@ const Main = () => {
       <MainTech/>
       <MainCommunity/>
       {/* <MainProfile/> */}
-    </StyledContainer>
+    </div>
   );
 };
 

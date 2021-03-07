@@ -92,6 +92,64 @@ const MainStudy = () => {
             <HashTag>#웹풀스택</HashTag>
           </TagBox>
         </StudyCard>
+        <StudyCard>
+          <TechImage
+            image={javaScript}
+          />
+          <StudyTitle
+            category="자바스크립트"
+            title="스터디 모집합니다."
+            subtitle= "잠실에서 자바스크립트 기초부터 공부해서 프로젝트까지 같이 진행하실 분들 구합니다."
+          />
+          <Line></Line>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 인원 &nbsp;:&nbsp; 1 / 4명 </StudyInfo>
+          </div>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 기간 &nbsp;:&nbsp; 6 개월 </StudyInfo>
+          </div>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 장소 &nbsp;:&nbsp; 잠실 / 송파구 </StudyInfo>
+          </div>
+          <Line></Line>
+          <TagBox>
+            <HashTag>#백엔드</HashTag>
+            <HashTag>#프론트엔드</HashTag>
+            <HashTag>#웹풀스택</HashTag>
+          </TagBox>
+        </StudyCard>
+        <StudyCard>
+          <TechImage
+            image={javaScript}
+          />
+          <StudyTitle
+            category="자바스크립트"
+            title="스터디 모집합니다."
+            subtitle= "잠실에서 자바스크립트 기초부터 공부해서 프로젝트까지 같이 진행하실 분들 구합니다."
+          />
+          <Line></Line>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 인원 &nbsp;:&nbsp; 1 / 4명 </StudyInfo>
+          </div>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 기간 &nbsp;:&nbsp; 6 개월 </StudyInfo>
+          </div>
+          <div>
+            <span><UserImage src={user} alt="user"/></span>
+            <StudyInfo> 장소 &nbsp;:&nbsp; 잠실 / 송파구 </StudyInfo>
+          </div>
+          <Line></Line>
+          <TagBox>
+            <HashTag>#백엔드</HashTag>
+            <HashTag>#프론트엔드</HashTag>
+            <HashTag>#웹풀스택</HashTag>
+          </TagBox>
+        </StudyCard>
       </ContentBox>
     </MainContainer>
   )

@@ -4,11 +4,13 @@ import styled from 'styled-components';
 const Container = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 100%;
-  height: 100%;
+  height: 80vh;
 `
 
-function StyledContainer({children}) {
+function FlexContainer({children}) {
     return (
         <Container>
             {children}
@@ -16,4 +18,4 @@ function StyledContainer({children}) {
     )
 }
 
-export default StyledContainer;
+export default FlexContainer;

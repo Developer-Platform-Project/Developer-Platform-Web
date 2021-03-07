@@ -1,14 +1,13 @@
 import React from 'react';
 import Header from '../components/Common/Header';
-import StyledContainer from '../components/Common/styles/StyledContainer';
 import Content from '../components/Login/Content';
 
 const Login = () => {
   return (
-    <StyledContainer>
+    <div>
       <Header/>
       <Content/>
-    </StyledContainer>
+    </div>
   );
 };
 
