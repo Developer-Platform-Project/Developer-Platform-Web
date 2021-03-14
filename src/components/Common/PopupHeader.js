@@ -1,16 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { withStyles } from '@material-ui/core/styles';
+import { IconButton } from '@material-ui/core';
+import Fade from '@material-ui/core/Fade';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import user from '../../assets/images/user.png';
+import { Link } from 'react-router-dom';
 
-const Popup = styled.div`
-  background-color: #090c1a;
-  position: absolute;
-  top: 60px;
-  right: 0px;
-  width: 204px;
-  height: 264px;
+const HeaderIcon = styled.img`
+  width: 20px;
+  height: 20px;
+  margin-top: -3px;
+  vertical-align: middle;
 `
-const Menu = styled.div`
+const MenuText = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -19,55 +23,115 @@ const Menu = styled.div`
   font-size: 16px;
   font-weight: 400;
   width: 100%;
-  height: 48px;
-  &:nth-child(4) {
-      margin-bottom: 15px;
-  }
-  &:last-child {
-    border-top: 1px solid #39444D;
-    color: #5D6E79;
-    height: 58px;
-  }&:hover {
+  height: 52px;
+  &:hover {
     background-color: #11172F;
     color: #fff;
   }
 `
 
-const PopupHeader = ({clicked,logout}) => {
+const StyledMenu = withStyles({
+  paper: {
+    marginTop: '9px',
+    backgroundColor: '#090C1A',
+    borderTop: '1px solid #39444D',
+    borderRadius: '0px',
+    width: '204px',
+    height: '278px',
+  },
+})((props) => (
+  <Menu
+    elevation={0}
+    getContentAnchorEl={null}
+    anchorOrigin={{
+      vertical: 'bottom',
+      horizontal: 'center',
+    }}
+    transformOrigin={{
+      vertical: 'top',
+      horizontal: 'center',
+    }}
+    {...props}
+  />
+));
+
+const StyledMenuItem = withStyles((theme) => ({
+  root: {
+    padding: 0,
+    '&:nth-child(4)': {
+      paddingBottom: '6px',
+    },
+    '&:last-child': {
+      paddingTop: '1px',
+      borderTop: '1px solid #39444D',
+    },
+  },
+}))(MenuItem);
+
+export default function PopupHeader({logout}) {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
-    <>
-    {clicked && 
-      <Popup>
-        <Menu>
-          <Link to='/account/settings'>
-            계정 관리
-          </Link>
-        </Menu>
-        <Menu>
-          <Link to='/account/settings/profile'>
-            내 프로필
-          </Link>
-        </Menu>
-        <Menu>
-          <Link to='/study'>
-            MY 스터디
-          </Link>
-        </Menu>
-        <Menu>
-          <Link to='/mento'>
-            멘토 ∙ 멘티
-          </Link>
-        </Menu>
-        <Menu onClick={logout}>
-          <Link to='/'>
-            로그아웃
-          </Link>
-        </Menu>
-      </Popup>
-    }
-    </>
-  )
+    <span style={{paddingRight: '8px'}}>
+      <IconButton
+        aria-controls="fade-menu"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <HeaderIcon src={user} alt="user"/>
+      </IconButton>
+      <StyledMenu
+        id="customized-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+        TransitionComponent={Fade}
+      >
+        <StyledMenuItem>
+          <MenuText>
+            <Link to='/account/settings'>
+              계정 관리
+            </Link>
+          </MenuText>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <MenuText>
+            <Link to='/account/profile'>
+              내 프로필
+            </Link>
+          </MenuText>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <MenuText>
+            <Link to='/account/study'>
+              MY 스터디
+            </Link>
+          </MenuText>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <MenuText>
+            <Link to='/account/mento'>
+              멘토 ∙ 멘티
+            </Link>
+          </MenuText>
+        </StyledMenuItem>
+        <StyledMenuItem>
+          <MenuText onClick={logout}>
+            <Link to='/'>
+              로그아웃
+            </Link>
+          </MenuText>
+        </StyledMenuItem>
+      </StyledMenu>
+    </span>
+  );
 }
-
-export default PopupHeader
-

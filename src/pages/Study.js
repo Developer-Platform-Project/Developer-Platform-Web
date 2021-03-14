@@ -1,13 +1,12 @@
 import React from 'react';
 import MainContainer from '../lib/styles/MainContainer';
-import Content from '../components/Main/Content';
 
-const Main = () => {
+const Study = () => {
   return (
     <MainContainer>
-      <Content/>
+      Study
     </MainContainer>
-  );
-};
+  )
+}
 
-export default Main;
+export default Study;

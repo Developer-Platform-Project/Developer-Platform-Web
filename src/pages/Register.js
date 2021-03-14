@@ -1,14 +1,28 @@
-import React from 'react'
-import Header from '../components/Common/Header'
+import React from 'react';
+import MainContainer from '../lib/styles/MainContainer';
+import FlexContainer from '../lib/styles/FlexContainer';
 import Content from '../components/Register/Content';
+import RegisterProfile from '../components/Register/Section/RegisterProfile';
+import { 
+  BrowserRouter as Router,
+  Route,
+  Switch, 
+  withRouter 
+} from "react-router-dom";
 
-const Register = () => {
+const Register = ({match}) => {
   return (
-    <div>
-      <Header/>
-      <Content/>
-    </div>
+    <MainContainer>
+      <FlexContainer>
+        <Router>
+          <Switch>
+              <Route exact path={`${match.path}`} component={Content} />
+              <Route path={`${match.path}/detail`} component={RegisterProfile} />
+              {/* <Route component={NotFound} /> */}
+          </Switch>
+        </Router>
+      </FlexContainer>
+    </MainContainer>
   )
 }
-
-export default Register;
+export default withRouter(Register);

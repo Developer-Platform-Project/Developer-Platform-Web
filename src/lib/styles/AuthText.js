@@ -9,7 +9,7 @@ const ButtonText = styled.span`
   padding-left: 10px;
 `
 
-const LoginText = ({children}) => {
+const AuthText = ({children}) => {
   return (
     <ButtonText>
       {children} 
@@ -17,4 +17,4 @@ const LoginText = ({children}) => {
   )
 }
 
-export default LoginText
+export default AuthText

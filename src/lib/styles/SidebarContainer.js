@@ -3,13 +3,15 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   display: flex;
-  width: 1200px;
-  margin: 0 auto;
-  flex-direction: column;
+  max-width: 1200px;
+  padding-top: 40px;
+  flex-direction: row;
   justify-content: center;
+  align-items: flex-start;
+  margin: 0 auto;
 `
 
-function MainContainer({children}) {
+function SidebarContainer({children}) {
     return (
         <Container>
             {children}
@@ -17,4 +19,4 @@ function MainContainer({children}) {
     )
 }
 
-export default MainContainer;
+export default SidebarContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import prev from '../../../assets/images/prev.png';
+import prev from '../../assets/images/prev.png';
 
 const Button = styled.button`
   border: 1px solid #ccc;

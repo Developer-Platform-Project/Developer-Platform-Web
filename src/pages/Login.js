@@ -1,13 +1,15 @@
 import React from 'react';
-import Header from '../components/Common/Header';
+import MainContainer from '../lib/styles/MainContainer';
+import FlexContainer from '../lib/styles/FlexContainer';
 import Content from '../components/Login/Content';
 
 const Login = () => {
   return (
-    <div>
-      <Header/>
-      <Content/>
-    </div>
+    <MainContainer>
+      <FlexContainer>
+        <Content/>
+      </FlexContainer>
+    </MainContainer>
   );
 };
 

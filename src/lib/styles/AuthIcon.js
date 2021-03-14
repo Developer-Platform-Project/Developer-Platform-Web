@@ -6,10 +6,10 @@ const Icon = styled.img`
   height: 20px;
 `
 
-const LoginIcon = ({src, alt}) => {
+const AuthIcon = ({src, alt}) => {
   return (
     <Icon src={src} alt={alt}/>
   )
 }
 
-export default LoginIcon;
+export default AuthIcon;

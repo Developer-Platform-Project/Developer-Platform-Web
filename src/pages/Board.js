@@ -1,13 +1,12 @@
 import React from 'react';
 import MainContainer from '../lib/styles/MainContainer';
-import Content from '../components/Main/Content';
 
-const Main = () => {
+const Board = () => {
   return (
     <MainContainer>
-      <Content/>
+      Board
     </MainContainer>
-  );
-};
+  )
+}
 
-export default Main;
+export default Board

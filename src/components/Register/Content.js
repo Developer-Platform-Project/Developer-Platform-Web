@@ -1,25 +1,37 @@
 import React, { useRef, useState } from 'react';
-import { useForm } from "react-hook-form";
+import { Controller, useForm } from "react-hook-form";
 import { withRouter } from 'react-router';
-import ErrorMessage from '../Common/styles/ErrorMessage';
-import FlexContainer from '../Common/styles/FlexContainer';
-import FormBox from '../Common/styles/FormBox';
-import IntroTitle from '../Common/styles/IntroTitle';
-import StyledButton from '../Common/styles/StyledButton';
-import StyledInput from '../Common/styles/StyledInput';
-import CustomSelector from '../Common/styles/CustomSelect';
-import LinkText from '../Common/styles/LinkText';
+import { Link } from 'react-router-dom';
+import ErrorMessage from '../../lib/styles/ErrorMessage';
+import FormBox from '../../lib/styles/FormBox';
+import LoginTitle from '../../lib/styles/LoginTitle';
+import StyledButton from '../../lib/styles/StyledButton';
+import StyledInput from '../../lib/styles/StyledInput';
+import CustomSelect from '../../lib/styles/CustomSelect';
+import LinkText from '../../lib/styles/LinkText';
+import TextContainer from '../../lib/styles/TextContainer';
+import { CloudSharp } from '@material-ui/icons';
 
 const Content = ({history}) => {
-  const { register, handleSubmit, watch, errors } = useForm({mode: 'onBlur'});
-  const [CheckId, setCheckId] = useState(true);
-  const [CheckEmail, setCheckEmail] = useState(true);
+  const { register, handleSubmit, watch, control, errors } = useForm({mode: 'onSubmit'});
   const password = useRef();
   password.current = watch("password");
 
+  const [CheckValidate, setCheckValidate] = useState({
+    checkId: true,
+    checkEmail: true,
+  })
+  const { checkId, checkEmail } = CheckValidate; 
+  
+  const [IsSelected, setIsSelected] = useState(false);
   const onSubmit = (user,event) => {
-      event.target.reset();
-      console.log(user);
+      if(user.gender === null) {
+        setIsSelected(true);
+      } else {
+        setIsSelected(false);
+        console.log(user);
+        history.push('/sign-up/detail');
+      }
   };
 
   const options = [
@@ -31,13 +43,12 @@ const Content = ({history}) => {
   const [Gender, setGender] = useState(options.value);
   const onSelect = (item) => {
     setGender(options.item);
-    console.log(item);
   };
 
   return (
-    <FlexContainer>
-      <IntroTitle>회원가입</IntroTitle>
-      <FormBox onSubmit={handleSubmit(onSubmit)}>
+    <>
+      <LoginTitle>회원가입</LoginTitle>
+      <FormBox onSubmit={handleSubmit(onSubmit)} width="408px">
 
         {/******************* 아이디 *******************/}
         <StyledInput
@@ -47,12 +58,15 @@ const Content = ({history}) => {
           placeholder="아이디"
           ref={register({ 
             required: true,
+            minLength: 6,
             maxLength: 10,
-            validate: value => CheckId
+            validate: value => checkId
           })}
         />
         {errors.id && errors.id.type === 'required'
           && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
+        {errors.id && errors.id.type === 'minLength' 
+        && <ErrorMessage>아이디를 6글자 이내로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'maxLength' 
           && <ErrorMessage>아이디를 10글자 이내로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'validate'
@@ -66,18 +80,18 @@ const Content = ({history}) => {
           placeholder="비밀번호"
           ref={register({ 
             required: true, 
-            minLength: 10,
+            minLength: 8,
           })}
         />
         {errors.password && errors.password.type === 'required' 
           && <ErrorMessage>비밀번호를 확인해주세요.</ErrorMessage>}
         {errors.password && errors.password.type === 'minLength' 
-          && <ErrorMessage>비밀번호를 10글자 이상 입력해주세요.</ErrorMessage>}
+          && <ErrorMessage>비밀번호를 8글자 이상 입력해주세요.</ErrorMessage>}
 
         {/******************* 비밀번호 확인 *******************/}
         <StyledInput
           label="비밀번호 확인"
-          name="confirmPassword"
+          name="passwordConfirm"
           type="password"
           placeholder="비밀번호 확인"
           ref={register({ 
@@ -86,15 +100,15 @@ const Content = ({history}) => {
               value === password.current 
           })}
         />
-        {errors.confirmPassword && errors.confirmPassword.type === 'required' 
+        {errors.passwordConfirm && errors.passwordConfirm.type === 'required' 
           && <ErrorMessage>비밀번호를 확인해주세요.</ErrorMessage>}
-        {errors.confirmPassword && errors.confirmPassword.type === 'validate' 
+        {errors.passwordConfirm && errors.passwordConfirm.type === 'validate' 
           && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
 
         {/******************* 이름 *******************/}
         <StyledInput
           label="이름"
-          name="userName"
+          name="name"
           type="text"
           placeholder="이름"
           ref={register({ 
@@ -102,9 +116,9 @@ const Content = ({history}) => {
             maxLength: 10,
           })}
         />
-        {errors.userName && errors.userName.type === 'required'
+        {errors.name && errors.name.type === 'required'
           && <ErrorMessage>이름을 입력해주세요.</ErrorMessage>}
-        {errors.userName && errors.userName.type === 'maxLength'
+        {errors.name && errors.name.type === 'maxLength'
           && <ErrorMessage>이름을 10글자 이내로 작성해주세요.</ErrorMessage>}
 
         {/******************* 이메일 *******************/}
@@ -116,7 +130,7 @@ const Content = ({history}) => {
           ref={register({ 
             required: true, 
             pattern: /^\S+@\S+$/i,
-            validate: value => CheckEmail
+            validate: value => checkEmail
           })} 
         />
         {errors.email && errors.email.type === 'required'
@@ -127,24 +141,29 @@ const Content = ({history}) => {
         && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         {/******************* 성별 *******************/}
-        <CustomSelector
-          placeholder={"성별을 선택해주세요."}
-          value={Gender}
+        <Controller
+          as={CustomSelect}
           options={options}
           onChange={onSelect}
-          getOptionValue={(option) => option.value}
-          getOptionLabel={(option) => option.value}
+          name="gender"
+          placeholder={"성별을 선택해주세요."}
+          defaultValue={Gender || null}
+          isClearable
+          control={control}
         />
+        {IsSelected && <ErrorMessage>성별을 입력해주세요.</ErrorMessage>}
+          
         <StyledButton
           type="submit"
           value="회원가입"
         />
       </FormBox>
-      <LinkText
-        p="이미 회원가입을 하셨나요?"
-        link="로그인하기"
-       />
-    </FlexContainer>
+      <TextContainer span="이미 회원가입을 하셨나요?">
+        <Link to="/login">
+          <LinkText>로그인 하기</LinkText>
+        </Link>
+      </TextContainer>
+    </>
   )
 }
 

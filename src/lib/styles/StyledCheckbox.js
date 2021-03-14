@@ -1,13 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
-import checked from '../../../assets/images/checked.png';
+import checked from '../../assets/images/checked.png';
 
 const CheckBox = styled.div`
   display: flex;
   margin-top: 16px;
 `
 const CheckTitle = styled.span`
-  color: #999;
+  color: #A2A5B7;
   font-size: 14px;
   line-height: 14px;
   margin-right: 5px;

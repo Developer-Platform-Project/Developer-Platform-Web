@@ -8,7 +8,7 @@ const SubTitle = styled.p`
   margin-bottom: 24px;
 `
 
-const Article = ({children}) => {
+const TitleDescription = ({children}) => {
   return (
     <SubTitle>
       {children}
@@ -16,4 +16,4 @@ const Article = ({children}) => {
   )
 }
 
-export default Article;
+export default TitleDescription;

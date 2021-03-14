@@ -1,8 +1,8 @@
 import React from 'react';
-import SocialLogin from '../../Common/styles/SocialLogin';
-import LoginIcon from '../../Common/styles/LoginIcon';
+import SocialLogin from '../../../lib/styles/SocialLogin';
+import AuthIcon from '../../../lib/styles/AuthIcon';
+import AuthText from '../../../lib/styles/AuthText';
 import github from '../../../assets/images/github.png';
-import LoginText from '../../Common/styles/LoginText';
 
 
 const GitHubLogin = () => {
@@ -12,8 +12,8 @@ const GitHubLogin = () => {
       backgroundColor="#000"
       color="#fff"
     >
-      <LoginIcon src={github} alt="github"/>
-      <LoginText>Github</LoginText>
+      <AuthIcon src={github} alt="github"/>
+      <AuthText>Github</AuthText>
     </SocialLogin>
   )
 }

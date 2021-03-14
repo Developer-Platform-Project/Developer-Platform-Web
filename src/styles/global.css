@@ -95,3 +95,16 @@ html, body, #root {
     "Noto Sans CJK KR",
     sans-serif;
 }
+
+div .active {
+  width: 100%;
+  height: 56px;
+  color: #36507E;
+  font-weight: 500;
+}
+
+li .active {
+  font-weight: 500;
+  color: #2B80F2;
+  background-color: transparent;
+} 

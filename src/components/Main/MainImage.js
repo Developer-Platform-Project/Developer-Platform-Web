@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import mainimage from '../../assets/images/mainimage.png'
-import MainContainer from '../Common/styles/MainContainer';
+import MainContainer from '../../lib/styles/MainContainer';
 
 const ImageContainer = styled.div`
   width: 100%;

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Select from "react-select";
 
 const StyledLabel= styled.p`
@@ -19,6 +19,10 @@ const StyledSelect = styled(Select)`
     background-color: #edf5ff;
     border-radius: 4px;
     cursor: pointer;
+    ${(props => props.account && css`
+      border: 1px solid #CDDDF4;
+      background-color: #F2F6FD;
+    `)}
   }
   .Select__placeholder {
     font-size: 14px;
@@ -48,20 +52,20 @@ const StyledSelect = styled(Select)`
   }
 `;
 
-const CustomSelect = ({options, value, getOptionLabel, getOptionValue, onChange, placeholder}) => (
+const CustomSelect = React.forwardRef(({options, value, defaultValue, placeholder, onChange, account},inputRef) => (
   <>
     <StyledLabel>성별</StyledLabel>
     <StyledSelect
       isClearable
       classNamePrefix="Select"
       placeholder={placeholder}
-      options={options}
       value={value}
+      options={options}
       onChange={onChange}
-      getOptionLabel={getOptionLabel}
-      getOptionValue={getOptionValue}
+      defaultValue={defaultValue}
+      account={account}
     />
   </>
-);
+));
 
 export default CustomSelect;
