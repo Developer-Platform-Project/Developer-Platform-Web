@@ -14,13 +14,9 @@ const Register = ({match}) => {
   return (
     <MainContainer>
       <FlexContainer>
-        <Router>
-          <Switch>
-              <Route exact path={`${match.path}`} component={Content} />
-              <Route path={`${match.path}/detail`} component={RegisterProfile} />
-              {/* <Route component={NotFound} /> */}
-          </Switch>
-        </Router>
+        <Route exact path={`${match.path}`} component={Content} />
+        <Route path={`${match.path}/detail`} component={RegisterProfile} />
+        {/* <Route component={NotFound} /> */}
       </FlexContainer>
     </MainContainer>
   )
