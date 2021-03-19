@@ -10,6 +10,7 @@ import SettingContainer from '../../lib/styles/SettingContainer';
 import StyledButton from '../../lib/styles/StyledButton';
 import ErrorMessage from '../../lib/styles/ErrorMessage';
 import LinkText from '../../lib/styles/LinkText';
+import genderOptions from '../Common/Options/genderOptions';
 
 const AccountPage = () => {
   const { handleSubmit, watch, control} = useForm({mode: 'onBlur'});
@@ -34,14 +35,9 @@ const AccountPage = () => {
       console.log(user);
   };
 
-  const options = [
-    { value: "남", label: "남" },
-    { value: "여", label: "여" },
-    { value: "선택안함", label: "선택안함" }
-  ];
-  const [Gender, setGender] = useState(options.value);
+  const [Gender, setGender] = useState(null);
   const onSelect = (item) => {
-    setGender(options.item);
+    setGender(item);
   };
 
   const onAlert = (e) => {
@@ -105,10 +101,9 @@ const AccountPage = () => {
             페이지에서 변경해주세요.
           </ErrorMessage>
         }
-
         <Controller
           as={CustomSelect}
-          options={options}
+          options={genderOptions}
           onChange={onSelect}
           name="gender"
           placeholder={"성별을 선택해주세요."}

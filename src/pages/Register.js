@@ -4,9 +4,7 @@ import FlexContainer from '../lib/styles/FlexContainer';
 import Content from '../components/Register/Content';
 import RegisterProfile from '../components/Register/Section/RegisterProfile';
 import { 
-  BrowserRouter as Router,
   Route,
-  Switch, 
   withRouter 
 } from "react-router-dom";
 

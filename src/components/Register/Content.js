@@ -10,7 +10,7 @@ import StyledInput from '../../lib/styles/StyledInput';
 import CustomSelect from '../../lib/styles/CustomSelect';
 import LinkText from '../../lib/styles/LinkText';
 import TextContainer from '../../lib/styles/TextContainer';
-import { CloudSharp } from '@material-ui/icons';
+import genderOptions from '../Common/Options/genderOptions'
 
 const Content = ({history}) => {
   const { register, handleSubmit, watch, control, errors } = useForm({mode: 'onSubmit'});
@@ -34,15 +34,9 @@ const Content = ({history}) => {
       }
   };
 
-  const options = [
-    { value: "남", label: "남" },
-    { value: "여", label: "여" },
-    { value: "선택안함", label: "선택안함" }
-  ];
-
-  const [Gender, setGender] = useState(options.value);
+  const [Gender, setGender] = useState(null);
   const onSelect = (item) => {
-    setGender(options.item);
+    setGender(item);
   };
 
   return (
@@ -66,7 +60,7 @@ const Content = ({history}) => {
         {errors.id && errors.id.type === 'required'
           && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'minLength' 
-        && <ErrorMessage>아이디를 6글자 이내로 입력해주세요.</ErrorMessage>}
+        && <ErrorMessage>아이디를 6글자 이상으로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'maxLength' 
           && <ErrorMessage>아이디를 10글자 이내로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'validate'
@@ -121,6 +115,22 @@ const Content = ({history}) => {
         {errors.name && errors.name.type === 'maxLength'
           && <ErrorMessage>이름을 10글자 이내로 작성해주세요.</ErrorMessage>}
 
+        {/******************* 닉네임 *******************/}
+        <StyledInput
+          label="닉네임"
+          name="nickname"
+          type="text"
+          placeholder="닉네임"
+          ref={register({ 
+            required: true, 
+            maxLength: 10,
+          })}
+        />
+        {errors.nickname && errors.nickname.type === 'required'
+          && <ErrorMessage>닉네임을 입력해주세요.</ErrorMessage>}
+        {errors.nickname && errors.nickname.type === 'maxLength'
+          && <ErrorMessage>닉네임을 10글자 이내로 작성해주세요.</ErrorMessage>}
+
         {/******************* 이메일 *******************/}
         <StyledInput
           label="이메일"
@@ -143,7 +153,7 @@ const Content = ({history}) => {
         {/******************* 성별 *******************/}
         <Controller
           as={CustomSelect}
-          options={options}
+          options={genderOptions}
           onChange={onSelect}
           name="gender"
           placeholder={"성별을 선택해주세요."}

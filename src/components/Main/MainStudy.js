@@ -6,7 +6,7 @@ import ContentTitle from '../../lib/styles/ContentTitle';
 import ViewMore from '../../lib/styles/ViewMore';
 import PrevButton from '../../lib/styles/PrevButton';
 import NextButton from '../../lib/styles/NextButton';
-import StudyTitle from './Section/StudyTitle';
+import StudyTitle from '../../lib/styles/StudyTitle';
 import TechImage from './Section/TechImage';
 import javaScript from '../../assets/images/tech/javaScript.png';
 import user from '../../assets/images/user.png';

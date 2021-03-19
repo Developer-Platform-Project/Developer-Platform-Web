@@ -28,10 +28,13 @@ const Input = styled.input`
        line-height: 42px;
   }
   &:hover {
-    border: 1px solid #2b80f2;
+    border: 1px solid #7194C1;
+  }
+  &:focus {
+    border: 1px solid #7194C1;
   }
   &:active {
-    border: 2px solid #2b80f2;
+    border: 2px solid #7194C1;
   }
   ${(props => props.readOnly && css`
     border: 1px solid #eaeaea;

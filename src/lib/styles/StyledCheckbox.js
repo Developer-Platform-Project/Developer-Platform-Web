@@ -27,7 +27,7 @@ const BeforeCheck = styled.div`
   vertical-align: middle;
 `
 
-function StyledCheckbox({onClick,value, check}) {
+function StyledCheckbox({onClick,value,check}) {
   return (
     <CheckBox onClick={onClick}>
       <CheckTitle>{value}</CheckTitle>

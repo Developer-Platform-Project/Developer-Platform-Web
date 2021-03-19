@@ -64,7 +64,7 @@ const AccountDelete = () => {
         />
         <StyledButton
           backgroundColor="#f26e6e"
-          width='140px'
+          width='120px'
           height='42px'
           fontSize='14px'
           marginTop='16px'

@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Header from './components/Common/Header';
 import FindPassword from './components/Register/FindPassword';
 import PasswordForm from './components/Register/PasswordForm';
-import RegisterProfile from './components/Register/Section/RegisterProfile';
 import Account from './pages/Account';
 import Main from './pages/Main';
 import Login from './pages/Login';

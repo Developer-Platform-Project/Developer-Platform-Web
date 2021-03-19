@@ -31,6 +31,9 @@ const Input = styled.input`
   &:active {
     border: 2px solid #2b80f2;
   }
+  &:focus {
+    border: 1px solid #2b80f2;
+  }
 `
 const StyledInput = React.forwardRef(({label,name,type,icon,value,placeholder},ref) => (
       <>

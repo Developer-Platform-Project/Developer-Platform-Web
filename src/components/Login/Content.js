@@ -140,7 +140,7 @@ const Content = ({history}) => {
         {errors.id && errors.id.type === 'required'
           && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'minLength' 
-        && <ErrorMessage>아이디를 6글자 이내로 입력해주세요.</ErrorMessage>}
+        && <ErrorMessage>아이디를 6글자 이상으로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'maxLength' 
           && <ErrorMessage>아이디를 10글자 이내로 입력해주세요.</ErrorMessage>}
         {errors.id && errors.id.type === 'validate'

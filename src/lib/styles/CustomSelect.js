@@ -50,6 +50,22 @@ const StyledSelect = styled(Select)`
   .css-tj5bde-Svg:hover{
     color: #2b80f2;
   }
+  .Select__menu-list::-webkit-scrollbar {
+    width: 10px;
+    height: 0px;
+  }
+  .Select__menu-list::-webkit-scrollbar-track {
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+  .Select__menu-list::-webkit-scrollbar-thumb {
+    background-color: #2b80f2;
+    opacity: 0.5;
+    border-radius: 8px;
+    background-clip: padding-box;
+    border: 1px solid transparent;
+  }
 `;
 
 const CustomSelect = React.forwardRef(({options, value, defaultValue, placeholder, onChange, account},inputRef) => (

@@ -47,7 +47,7 @@ const IconMenu = styled.span`
   line-height: 60px;
 `
 const MiddleMenu = styled.div`
-  padding: 60px;
+  padding-left: 60px;
 `
 const RightMenu = styled.div`
   text-align: right;
