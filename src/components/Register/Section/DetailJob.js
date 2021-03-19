@@ -35,24 +35,22 @@ const BlueRadio = withStyles({
   checked: {},
 })((props) => <Radio color="default" {...props} />);
 
-const DetailJob = () => {
+const DetailJob = ({onChangeYears, onChangeDuty, handleRadio, selectedValue, Years, Duty}) => {
   const classes = useStyles();
-  const [selectedValue, setSelectedValue] = useState('newcomer');
-  const [Years, setYears] = useState(null);
-  const [Duty, setDuty] = useState(null);
-
-  const handleChange = (e) => {
-    setSelectedValue(e.target.value);
-  };
-
-  const onChangeYear = (e) => {
-    setYears(e.currentTarget.textContent);
-    console.log(e.currentTarget.textContent);
-  }
-  const onChangeDuty = (e) => {
-    setDuty(e.currentTarget.textContent);
-    console.log(e.currentTarget.textContent);
-  }
+  // const [selectedValue, setSelectedValue] = useState('newcomer');
+  // const [Years, setYears] = useState(null);
+  // const [Duty, setDuty] = useState(null);
+  // const handleChange = (e) => {
+  //   setSelectedValue(e.target.value);
+  // };
+  // const onChangeYear = (e) => {
+  //   setYears(e.currentTarget.textContent);
+  //   console.log(e.currentTarget.textContent);
+  // }
+  // const onChangeDuty = (e) => {
+  //   setDuty(e.currentTarget.textContent);
+  //   console.log(e.currentTarget.textContent);
+  // }
 
   return (
     <ModalContainer width="428px">
@@ -67,7 +65,7 @@ const DetailJob = () => {
               control={
                 <BlueRadio
                   checked={selectedValue === 'newcomer'}
-                  onChange={handleChange}
+                  onChange={handleRadio}
                   value="newcomer"
                   size="small"
                   name="newcomer"
@@ -85,7 +83,7 @@ const DetailJob = () => {
               control={
                 <BlueRadio
                   checked={selectedValue === 'experienced'}
-                  onChange={handleChange}
+                  onChange={handleRadio}
                   value="experienced"
                   size="small"
                   name="experienced"
@@ -101,6 +99,8 @@ const DetailJob = () => {
           <>
             <ModalLabel label="true">직업분야</ModalLabel>
             <StyledSelector
+              name="duty"
+              SelectedOption={Duty}
               onChange={onChangeDuty}
               letOptions={dutyOptions}
               placeholder="직업 분야를 선택해주세요"
@@ -108,7 +108,9 @@ const DetailJob = () => {
             <InputBox>
               <ModalLabel label="true">업무경력</ModalLabel>
               <StyledSelector
-                onChange={onChangeYear}
+                name="years"
+                SelectedOption={Years}
+                onChange={onChangeYears}
                 letOptions={yearsOptions}
                 placeholder="업무 경력을 선택해주세요"
               />

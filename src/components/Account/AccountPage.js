@@ -10,7 +10,7 @@ import SettingContainer from '../../lib/styles/SettingContainer';
 import StyledButton from '../../lib/styles/StyledButton';
 import ErrorMessage from '../../lib/styles/ErrorMessage';
 import LinkText from '../../lib/styles/LinkText';
-import genderOptions from '../Common/Options/genderOptions';
+import genderOptions from '../../lib/options/genderOptions';
 
 const AccountPage = () => {
   const { handleSubmit, watch, control} = useForm({mode: 'onBlur'});

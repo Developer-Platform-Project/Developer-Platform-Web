@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
@@ -11,6 +11,7 @@ import { StepConnector } from '@material-ui/core';
 import DetailJob from './DetailJob';
 import EndOfProfile from './EndOfProfile';
 import DetailRegion from './DetailRegion';
+import axios from 'axios';
 
 
 const ButtonContainer = styled.div`
@@ -126,41 +127,95 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function getSteps() {
-  return ['프로필 설정', '활동지역', '업무분야', '테크스텍', '관심사', '시작하기'];
-}
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return <DetailProfile/>;
-    case 1:
-      return <DetailRegion/>;
-    case 2:
-      return <DetailJob/>;
-    case 3:
-      return '테크스택';
-    case 4:
-      return '관심사';
-    default:
-      return <EndOfProfile/>;
-  }
-}
 
 const DetailStepper = ({history}) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
+  const getSteps = () => {
+    return ['프로필 설정', '활동지역', '업무분야', '테크스텍', '관심사', '시작하기'];
+  }
   const steps = getSteps();
+  const getStepContent = (step) => {
+    switch (step) {
+      case 0:
+        return (
+          <DetailProfile 
+            onChange={onImageChange} 
+            onCheck={onEmailCheck} 
+            Preview={Preview}
+            checked={checked}
+          />
+        );
+      case 1:
+        return <DetailRegion/>;
+      case 2:
+        return (
+          <DetailJob 
+            onChangeYears={onChangeYears}
+            onChangeDuty={onChangeDuty}
+            handleRadio={handleRadio}
+            selectedValue={selectedValue} 
+            Years={Years}
+            Duty={Duty}
+        />);
+      case 3:
+        return '테크스택';
+      case 4:
+        return '관심사';
+      default:
+        return <EndOfProfile/>;
+    }
+  }
 
+  // Detail Profile
+  const [Image, setImage] = useState(null);
+  const [Preview, setPreview] = useState(null);
+  const [checked, setChecked] = useState(true);
+  const handleFile = (e) => {
+    const content = e.target.result;
+    console.log('file content',  content)
+    setPreview(content);
+  }
+  const onImageChange = (file) => {
+    let fileData = new FileReader();
+    fileData.onloadend = handleFile;
+    fileData.readAsDataURL(file);
+    setImage(file);
+  }
+  const onEmailCheck = (e) => {
+    setChecked(e.target.checked);
+    console.log(e.target.checked);
+  }
+
+  // Detail Job
+  const [selectedValue, setSelectedValue] = useState('newcomer');
+  const [Years, setYears] = useState(null);
+  const [Duty, setDuty] = useState(null);
+  const handleRadio = (e) => {
+    setSelectedValue(e.target.value);
+  };
+  const onChangeYears = (e) => {
+    setYears(e.target.textContent);
+  }
+  const onChangeDuty = (e) => {
+    setDuty(e.target.textContent);
+  }
   const handleNext = (e) => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
-
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   const onSubmit = () => {
+    const formData = new FormData();
+    formData.append('file', Image)
+    axios.post('/api/users/upload', formData, {
+      header: { 'content-type': 'multipart/form-data' },
+    }).then((response) => {
+      console.log({ response });
+    });
     history.push('/');
   }
 

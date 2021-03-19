@@ -108,43 +108,17 @@ const useStyles = makeStyles({
   }
 })
 
-const DetailProfile = () => {
+const DetailProfile = ({
+  onChange, 
+  onCheck, 
+  Preview,
+  checked,
+}) => {
   const classes = useStyles();
-  const [Image, setImage] = useState(null);
-  const [Preview, setPreview] = useState(null);
-  const [checked, setChecked] = useState(true);
-
-  const handleFile = (e) => {
-    const content = e.target.result;
-    console.log('file content',  content)
-    setPreview(content);
-  }
-
-  const onChange = (file) => {
-    let fileData = new FileReader();
-    fileData.onloadend = handleFile;
-    fileData.readAsDataURL(file);
-    setImage(file);
-  }
-
-  const onCheck = (e) => {
-    setChecked(e.target.checked);
-  }
-
-  const onSubmit = () => {
-    const formData = new FormData();
-    formData.append('file', Image)
-    axios.post('/api/users/upload', formData, {
-      header: { 'content-type': 'multipart/form-data' },
-    }).then((response) => {
-      console.log({ response });
-    });
-  }
-
   return (
     <ModalContainer width="420px">
       <StyledTitle fontSize="30px">프로필 설정하기</StyledTitle>
-      <FormBox paddingTop="24px" onSubmit={onSubmit}>
+      <FormBox paddingTop="24px">
         <ModalLabel>프로필 이미지 선택</ModalLabel>
         <LabelDescription>이미지 업로드를 하지 않을 시 기본 프로필로 지정되며 가입 후 마이페이지에서 변경 가능합니다.</LabelDescription>
         <ImgContainer>

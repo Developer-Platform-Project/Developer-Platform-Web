@@ -10,7 +10,7 @@ import StyledInput from '../../lib/styles/StyledInput';
 import CustomSelect from '../../lib/styles/CustomSelect';
 import LinkText from '../../lib/styles/LinkText';
 import TextContainer from '../../lib/styles/TextContainer';
-import genderOptions from '../Common/Options/genderOptions'
+import genderOptions from '../../lib/options/genderOptions'
 
 const Content = ({history}) => {
   const { register, handleSubmit, watch, control, errors } = useForm({mode: 'onSubmit'});
