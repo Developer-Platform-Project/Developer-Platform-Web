@@ -11,7 +11,7 @@ export const setUserInfo = userInfo => ({
 const initialState = {
   apiUrl: 'http://localhost:4000',
   userInfo: {
-    userId: null,
+    userEmail: null,
     password: null,
     nickname: null,
     name: null

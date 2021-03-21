@@ -1,10 +1,10 @@
 import React from 'react';
-import MainContainer from '../../lib/styles/MainContainer';
-import ContentHeader from '../../lib/styles/ContentHeader';
-import ContentTitle from '../../lib/styles/ContentTitle';
-import ViewMore from '../../lib/styles/ViewMore';
-import PrevButton from '../../lib/styles/PrevButton';
-import NextButton from '../../lib/styles/NextButton';
+import MainContainer from '../../../lib/styles/MainContainer';
+import ContentHeader from '../../../lib/styles/ContentHeader';
+import ContentTitle from '../../../lib/styles/ContentTitle';
+import ViewMore from '../../../lib/styles/ViewMore';
+import PrevButton from '../../../lib/styles/PrevButton';
+import NextButton from '../../../lib/styles/NextButton';
 
 const MainTech = () => {
   return (

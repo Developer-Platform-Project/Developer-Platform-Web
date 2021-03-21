@@ -72,10 +72,11 @@ const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
 export default function StyledSelector({letOptions, placeholder, onChange, SelectedOption}) {
   const classes = useStyles();
+
   return (
     <>
       <Autocomplete
-        value={letOptions.find(v => v.value === SelectedOption) || {}}
+        value={letOptions.find(v => v.value === SelectedOption) || null}
         className={classes.root}
         onChange={onChange}
         options={letOptions}
@@ -92,7 +93,7 @@ export default function StyledSelector({letOptions, placeholder, onChange, Selec
           </React.Fragment>
         )}
         renderInput={(params) => (
-          <TextField {...params} variant="outlined" className={classes.textField} placeholder={placeholder} valueLink={SelectedOption}/>
+          <TextField {...params} variant="outlined" className={classes.textField} placeholder={placeholder} />
         )}
       />
     </>
