@@ -15,10 +15,10 @@ app.use(express.urlencoded({ extended: false }));
 if (process.env.NODE_ENV === 'production') app.use(express.static(path.resolve(__dirname, 'public')));
 
 app.post('/api/user', (req, res) => {
-  const { body: { userId, password } } = req;
+  const { body: { userEmail, password } } = req;
 
   res.json({ result: true, data: {
-    userId,
+    userEmail,
     password,
     nickname: 'qweqwe',
     name: '홍길동'

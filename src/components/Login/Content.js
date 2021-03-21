@@ -59,10 +59,10 @@ const Content = ({history}) => {
   const dispatch = useDispatch();
 
   const [Checked, setChecked] = useState({
-    checkId: true,
+    checkEmail: true,
     checkPassword: true,
   })
-  const { checkId, checkPassword } = Checked; 
+  const { checkEmail, checkPassword } = Checked; 
   const [RememberId, setRememberId] = useState(false);
 
   const onSubmit = (user,event) => {
@@ -75,7 +75,7 @@ const Content = ({history}) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             data: {
-              userId: user.id,
+              userEmail: user.email,
               password: sha256(user.password).toString()
             }
           });
@@ -101,7 +101,7 @@ const Content = ({history}) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             data: {
-              userId: savedUserInfo.userId,
+              userEmail: savedUserInfo.userEmail,
               password: savedUserInfo.password
             }
           });
@@ -126,25 +126,22 @@ const Content = ({history}) => {
       <LoginTitle>시작하기</LoginTitle>
       <FormBox onSubmit={handleSubmit(onSubmit)}>
         <StyledInput
-          label="아이디"
-          name="id"
+          label="이메일"
+          name="email"
           type="text"
-          placeholder="아이디"
+          placeholder="이메일"
           ref={register({ 
-            required: true,
-            minLength: 6,
-            maxLength: 10,
-            validate: value => checkId
-          })}
+            required: true, 
+            pattern: /^\S+@\S+$/i,
+            validate: value => checkEmail
+          })} 
         />
-        {errors.id && errors.id.type === 'required'
-          && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'minLength' 
-        && <ErrorMessage>아이디를 6글자 이상으로 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'maxLength' 
-          && <ErrorMessage>아이디를 10글자 이내로 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'validate'
-          && <ErrorMessage>아이디가 일치하지 않습니다.</ErrorMessage>}
+        {errors.email && errors.email.type === 'required'
+          && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
+        {errors.email && errors.email.type === 'pattern'
+          && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
+        {errors.email && errors.email.type === 'validate'
+        && <ErrorMessage>이메일이 일치하지 않습니다.</ErrorMessage>}
 
         <StyledInput
           label="비밀번호"

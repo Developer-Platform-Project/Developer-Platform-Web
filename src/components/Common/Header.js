@@ -65,7 +65,7 @@ const Header = ({history}) => {
   const logout = useCallback(() => {
     sessionStorage.removeItem('userInfo');
     dispatch(setUserInfo({
-      userId: null,
+      userEmail: null,
       nickname: null,
       name: null
     }));
@@ -103,7 +103,7 @@ const Header = ({history}) => {
           </MiddleMenu>
         </LeftMenu>
         <RightMenu>
-          {userInfo.userId ? (
+          {userInfo.userEmail ? (
             <>
               <IconMenu>
                 <IconButton>
