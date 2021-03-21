@@ -16,19 +16,17 @@ const AccountPage = () => {
   const { handleSubmit, watch, control} = useForm({mode: 'onBlur'});
 
   const [IsAlert, setIsAlert] = useState({
-    alertId: false,
     alertName: false,
     alertEmail: false,
   });
-  const { alertId, alertName, alertEmail,} = IsAlert;
+  const { alertName, alertEmail,} = IsAlert;
  
   const [UserInfo, setUserInfo] = useState({
-    userId: 'jyp933',
     userName: '박지연',
     userEmail: 'jyp933@gmail.com',
     userGender: { value: "여", label: "여" }
   });
-  const { userId, userName, userEmail, userGender } = UserInfo;
+  const { userName, userEmail, userGender } = UserInfo;
 
   const onSubmit = (user,event) => {
       event.target.reset();
@@ -59,18 +57,6 @@ const AccountPage = () => {
         description="계정의 기본 정보를 설정합니다."
       />
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>
-        <AccountInput
-          readOnly
-          label="아이디"
-          name="id"
-          type="text"
-          value={userId}
-          onClick={onAlert}
-        />
-        {alertId &&
-          <ErrorMessage>아이디는 변경할 수 없습니다.</ErrorMessage>
-        }
-
         <AccountInput
           readOnly
           label="이름"

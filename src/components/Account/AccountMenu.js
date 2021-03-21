@@ -14,7 +14,7 @@ const Sidebar = styled.div`
   width: 264px;
 `
 const SidebarBox = styled.div`
-  margin-top: 20px;
+  margin-top: 10px;
   border-radius: 6px;
   border: 1px solid #E4EBF5;
   background-color: #F9FAFC;
@@ -106,7 +106,6 @@ const AccountMenu = () => {
 
   return (
     <Sidebar>
-      <ContentTitle>마이페이지</ContentTitle>
       <SidebarBox>
         <MiniProfile
           name = {name}
