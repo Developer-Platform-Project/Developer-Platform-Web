@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import FormBox from '../../../lib/styles/FormBox';
-import ModalContainer from '../../../lib/styles/ModalContainer';
-import ModalLabel from '../../../lib/styles/ModalLabel';
-import StyledTitle from '../../../lib/styles/StyledTitle';
 import { FormControlLabel, Radio, withStyles, makeStyles } from '@material-ui/core';
-import RadioBox from '../../../lib/styles/RadioBox';
-import yearsOptions from '../../../lib/options/yearsOptions'
-import dutyOptions from '../../../lib/options/dutyOptions';
-import StyledSelector from '../../../lib/options/StyledSelector';
+import styled from 'styled-components';
+import FormBox from '../../../../lib/styles/FormBox';
+import ModalContainer from '../../../../lib/styles/ModalContainer';
+import ModalLabel from '../../../../lib/styles/ModalLabel';
+import StyledTitle from '../../../../lib/styles/StyledTitle';
+import RadioBox from '../../../../lib/styles/RadioBox';
+import yearsOptions from '../../../../lib/options/yearsOptions'
+import dutyOptions from '../../../../lib/options/dutyOptions';
+import StyledSelector from '../../../../lib/options/StyledSelector';
 
 const RadioContainer = styled.div`
   display: flex;
@@ -35,23 +35,8 @@ const BlueRadio = withStyles({
   checked: {},
 })((props) => <Radio color="default" {...props} />);
 
-const DetailJob = ({onChangeYears, onChangeDuty, handleRadio, selectedValue, Years, Duty}) => {
+const DetailJob = ({onCareerYears, onJobField, handleRadio, selectedValue, careerYears, jobField}) => {
   const classes = useStyles();
-  // const [selectedValue, setSelectedValue] = useState('newcomer');
-  // const [Years, setYears] = useState(null);
-  // const [Duty, setDuty] = useState(null);
-  // const handleChange = (e) => {
-  //   setSelectedValue(e.target.value);
-  // };
-  // const onChangeYear = (e) => {
-  //   setYears(e.currentTarget.textContent);
-  //   console.log(e.currentTarget.textContent);
-  // }
-  // const onChangeDuty = (e) => {
-  //   setDuty(e.currentTarget.textContent);
-  //   console.log(e.currentTarget.textContent);
-  // }
-
   return (
     <ModalContainer width="428px">
       <StyledTitle fontSize="30px">어떤 일을 하고계세요?</StyledTitle>
@@ -99,18 +84,18 @@ const DetailJob = ({onChangeYears, onChangeDuty, handleRadio, selectedValue, Yea
           <>
             <ModalLabel label="true">직업분야</ModalLabel>
             <StyledSelector
-              name="duty"
-              SelectedOption={Duty}
-              onChange={onChangeDuty}
+              name="jobField"
+              SelectedOption={jobField}
+              onChange={onJobField}
               letOptions={dutyOptions}
               placeholder="직업 분야를 선택해주세요"
             />
             <InputBox>
               <ModalLabel label="true">업무경력</ModalLabel>
               <StyledSelector
-                name="years"
-                SelectedOption={Years}
-                onChange={onChangeYears}
+                name="careerYears"
+                SelectedOption={careerYears}
+                onChange={onCareerYears}
                 letOptions={yearsOptions}
                 placeholder="업무 경력을 선택해주세요"
               />

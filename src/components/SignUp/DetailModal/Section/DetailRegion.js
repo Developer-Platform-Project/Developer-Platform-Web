@@ -1,8 +1,8 @@
 import React from 'react';
-import ModalContainer from '../../../lib/styles/ModalContainer';
-import ModalLabel from '../../../lib/styles/ModalLabel';
-import StyledTitle from '../../../lib/styles/StyledTitle';
-import FormBox from '../../../lib/styles/FormBox';
+import ModalContainer from '../../../../lib/styles/ModalContainer';
+import ModalLabel from '../../../../lib/styles/ModalLabel';
+import StyledTitle from '../../../../lib/styles/StyledTitle';
+import FormBox from '../../../../lib/styles/FormBox';
 
 const DetailRegion = () => {
   return (

@@ -17,12 +17,7 @@ const Content = ({history}) => {
   const password = useRef();
   password.current = watch("password");
 
-  const [CheckValidate, setCheckValidate] = useState({
-    checkId: true,
-    checkEmail: true,
-  })
-  const { checkId, checkEmail } = CheckValidate; 
-  
+  const [CheckEmail, setCheckEmail] = useState(true);
   const [IsSelected, setIsSelected] = useState(false);
   const onSubmit = (user,event) => {
       if(user.gender === null) {
@@ -44,27 +39,24 @@ const Content = ({history}) => {
       <LoginTitle>회원가입</LoginTitle>
       <FormBox onSubmit={handleSubmit(onSubmit)} width="408px">
 
-        {/******************* 아이디 *******************/}
+        {/******************* 이메일 *******************/}
         <StyledInput
-          label="아이디"
-          name="id"
+          label="이메일"
+          name="email"
           type="text"
-          placeholder="아이디"
+          placeholder="이메일"
           ref={register({ 
-            required: true,
-            minLength: 6,
-            maxLength: 10,
-            validate: value => checkId
-          })}
+            required: true, 
+            pattern: /^\S+@\S+$/i,
+            validate: value => CheckEmail
+          })} 
         />
-        {errors.id && errors.id.type === 'required'
-          && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'minLength' 
-        && <ErrorMessage>아이디를 6글자 이상으로 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'maxLength' 
-          && <ErrorMessage>아이디를 10글자 이내로 입력해주세요.</ErrorMessage>}
-        {errors.id && errors.id.type === 'validate'
-          && <ErrorMessage>이미 가입된 아이디입니다.</ErrorMessage>}
+        {errors.email && errors.email.type === 'required'
+          && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
+        {errors.email && errors.email.type === 'pattern'
+          && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
+        {errors.email && errors.email.type === 'validate'
+        && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         {/******************* 비밀번호 *******************/}
         <StyledInput
@@ -130,25 +122,6 @@ const Content = ({history}) => {
           && <ErrorMessage>닉네임을 입력해주세요.</ErrorMessage>}
         {errors.nickname && errors.nickname.type === 'maxLength'
           && <ErrorMessage>닉네임을 10글자 이내로 작성해주세요.</ErrorMessage>}
-
-        {/******************* 이메일 *******************/}
-        <StyledInput
-          label="이메일"
-          name="email"
-          type="text"
-          placeholder="이메일"
-          ref={register({ 
-            required: true, 
-            pattern: /^\S+@\S+$/i,
-            validate: value => checkEmail
-          })} 
-        />
-        {errors.email && errors.email.type === 'required'
-          && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
-        {errors.email && errors.email.type === 'pattern'
-          && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
-        {errors.email && errors.email.type === 'validate'
-        && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         {/******************* 성별 *******************/}
         <Controller

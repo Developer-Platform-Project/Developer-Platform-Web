@@ -18,11 +18,10 @@ const FindPassword = () => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onSubmit'});
 
   const [Checked, setChecked] = React.useState({
-    checkId: true,
     checkName: true,
     checkEmail: true,
   });
-  const {checkId, checkName, checkEmail} = Checked;
+  const {checkName, checkEmail} = Checked;
 
   const onSubmit = (user,event) => {
     event.target.reset();
@@ -41,21 +40,6 @@ const FindPassword = () => {
         <LoginTitle marginBottom='10px'>계정찾기</LoginTitle>
         <TitleDescription>가입 시 입력한 이메일 주소로 비밀번호 재설정 링크를 보내드립니다.</TitleDescription>
         <FormBox onSubmit={handleSubmit(onSubmit)} width="408px">
-          <StyledInput
-            label="아이디"
-            name="id"
-            type="text"
-            placeholder="아이디"
-            ref={register({ 
-              required: true,
-              validate: value => checkId
-            })}
-          />
-          {errors.id && errors.id.type === 'required'
-            && <ErrorMessage>아이디를 입력해주세요.</ErrorMessage>}
-          {errors.id && errors.id.type === 'validate'
-            && <ErrorMessage>아이디가 일치하지 않습니다.</ErrorMessage>}
-
           <StyledInput
             label="이름"
             name="name"

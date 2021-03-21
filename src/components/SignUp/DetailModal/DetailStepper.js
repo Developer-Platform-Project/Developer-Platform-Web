@@ -1,25 +1,24 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { StepConnector } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import DetailProfile from './DetailProfile';
-import StepperIcon from './StepperIcon';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-import { StepConnector } from '@material-ui/core';
-import DetailJob from './DetailJob';
-import EndOfProfile from './EndOfProfile';
-import DetailRegion from './DetailRegion';
+import styled from 'styled-components';
 import axios from 'axios';
-
+import DetailProfile from './Section/DetailProfile';
+import StepperIcon from './Section/StepperIcon';
+import DetailJob from './Section/DetailJob';
+import DetailSuccess from './Section/DetailSuccess';
+import DetailRegion from './Section/DetailRegion';
+import DetailTags from './Section/DetailTags';
 
 const ButtonContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `
-
 const StepperConnector = withStyles({
   root : {
     display: 'none',
@@ -41,7 +40,6 @@ const StepperConnector = withStyles({
     margin: 0,
   }
 })(StepConnector);
-
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
@@ -61,16 +59,6 @@ const useStyles = makeStyles((theme) => ({
         }
       }
     },
-    '& div:last-child': {
-      '& span:first-child':{
-        display: 'none',
-        '& span:first-child': {
-          '& div:first-child': {
-            display: 'none',
-          }
-        }
-      }
-    }
   },
   step: {
     padding: '0px',
@@ -127,13 +115,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 const DetailStepper = ({history}) => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = React.useState(0);
   const getSteps = () => {
-    return ['프로필 설정', '활동지역', '업무분야', '테크스텍', '관심사', '시작하기'];
+    return ['프로필 설정', '활동지역', '업무분야', '관심사', '시작하기'];
   }
   const steps = getSteps();
   const getStepContent = (step) => {
@@ -152,19 +138,17 @@ const DetailStepper = ({history}) => {
       case 2:
         return (
           <DetailJob 
-            onChangeYears={onChangeYears}
-            onChangeDuty={onChangeDuty}
+            onCareerYears={onCareerYears}
+            onJobField={onJobField}
             handleRadio={handleRadio}
             selectedValue={selectedValue} 
-            Years={Years}
-            Duty={Duty}
+            careerYears={Years}
+            jobField={JobField}
         />);
       case 3:
-        return '테크스택';
-      case 4:
-        return '관심사';
+        return <DetailTags/>;
       default:
-        return <EndOfProfile/>;
+        return <DetailSuccess/>;
     }
   }
 
@@ -191,15 +175,15 @@ const DetailStepper = ({history}) => {
   // Detail Job
   const [selectedValue, setSelectedValue] = useState('newcomer');
   const [Years, setYears] = useState(null);
-  const [Duty, setDuty] = useState(null);
+  const [JobField, setJobField] = useState(null);
   const handleRadio = (e) => {
     setSelectedValue(e.target.value);
   };
-  const onChangeYears = (e) => {
+  const onCareerYears = (e) => {
     setYears(e.target.textContent);
   }
-  const onChangeDuty = (e) => {
-    setDuty(e.target.textContent);
+  const onJobField = (e) => {
+    setJobField(e.target.textContent);
   }
   const handleNext = (e) => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -209,13 +193,23 @@ const DetailStepper = ({history}) => {
   };
 
   const onSubmit = () => {
-    const formData = new FormData();
-    formData.append('file', Image)
-    axios.post('/api/users/upload', formData, {
-      header: { 'content-type': 'multipart/form-data' },
-    }).then((response) => {
-      console.log({ response });
-    });
+    const DetailData = {
+      "careerYears": Years,
+      "interests": [],
+      "jobField": JobField,
+      "profileImage": Image,
+      "receiveEmail": checked,
+      "techStacks": [],
+      "zones": []
+    }
+    console.log(DetailData);
+    // const formData = new FormData();
+    // formData.append('file', Image)
+    // axios.post('/api/users/upload', formData, {
+    //   header: { 'content-type': 'multipart/form-data' },
+    // }).then((response) => {
+    //   console.log({ response });
+    // });
     history.push('/');
   }
 

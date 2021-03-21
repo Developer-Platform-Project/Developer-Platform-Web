@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const RegisterProfile = ({history}) => {
+const SignUpModal = ({history}) => {
   const theme = unstable_createMuiStrictModeTheme();
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
@@ -56,4 +56,4 @@ const RegisterProfile = ({history}) => {
   )
 }
 
-export default RegisterProfile;
+export default SignUpModal;

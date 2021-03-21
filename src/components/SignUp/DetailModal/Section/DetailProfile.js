@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import StyledTitle from '../../../lib/styles/StyledTitle';
-import FormBox from '../../../lib/styles/FormBox'; 
+import StyledTitle from '../../../../lib/styles/StyledTitle';
+import FormBox from '../../../../lib/styles/FormBox'; 
 import { Checkbox, FormControlLabel, withStyles } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core';
-import ModalContainer from '../../../lib/styles/ModalContainer';
-import ModalLabel from '../../../lib/styles/ModalLabel';
-import RadioBox from '../../../lib/styles/RadioBox';
+import ModalContainer from '../../../../lib/styles/ModalContainer';
+import ModalLabel from '../../../../lib/styles/ModalLabel';
+import RadioBox from '../../../../lib/styles/RadioBox';
 
 const LabelDescription = styled.p`
   font-size: 12px;
@@ -45,10 +45,12 @@ const EmailBox = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;
+  width: 100%;
   margin-top: 4px;
   margin-bottom: 10px;
 `
 const Description = styled.div`
+  width: 100%;
   border: 1px solid #ddd;
   border-radius: 4px;
   padding: 12px 16px;
