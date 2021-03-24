@@ -2,16 +2,10 @@ import React, { useRef } from 'react';
 import { useForm } from "react-hook-form";
 import { withRouter} from 'react-router';
 import { Link } from 'react-router-dom';
-import FormBox from '../../lib/styles/FormBox';
-import LoginTitle from '../../lib/styles/LoginTitle';
-import StyledButton from '../../lib/styles/StyledButton';
-import StyledInput from '../../lib/styles/StyledInput';
-import ErrorMessage from '../../lib/styles/ErrorMessage';
-import TitleDescription from '../../lib/styles/TitleDescription';
-import LinkText from '../../lib/styles/LinkText';
-import TextContainer from '../../lib/styles/TextContainer';
-import MainContainer from '../../lib/styles/MainContainer';
-import FlexContainer from '../../lib/styles/FlexContainer';
+import { MainContainer, FlexContainer } from 'lib/container/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { LoginTitle, TitleDescription, ErrorMessage, TextBox } from 'lib/typography/styles';
+import StyledInput from 'lib/form/StyledInput';
 
 const PasswordLink = ({history}) => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onBlur'});
@@ -61,16 +55,14 @@ const PasswordLink = ({history}) => {
           {errors.passwordConfirm && errors.passwordConfirm.type === 'validate' 
             && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
 
-          <StyledButton 
-            type="submit"
-            value="재설정 메일 보내기"
-          />
+          <StyledButton type="submit"> 비밀번호 재설정하기 </StyledButton>
         </FormBox>
-        <TextContainer span="비밀번호를 재설정 하셨나요?">
+        <TextBox>
+          <span>비밀번호를 재설정 하셨나요?</span>
           <Link to="/login">
-            <LinkText>로그인 하기</LinkText>
+            <span>로그인 하기</span>
           </Link>
-        </TextContainer>
+        </TextBox>
       </FlexContainer>
     </MainContainer>
   )

@@ -1,12 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/core/styles';
 import { IconButton } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import user from '../../assets/images/user.png';
-import { Link } from 'react-router-dom';
+import user from 'assets/images/user.png';
 
 const HeaderIcon = styled.img`
   width: 20px;

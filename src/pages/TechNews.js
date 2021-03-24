@@ -1,5 +1,5 @@
 import React from 'react';
-import MainContainer from '../lib/styles/MainContainer';
+import { MainContainer } from 'lib/container/styles';
 
 const TechNews = () => {
   return (

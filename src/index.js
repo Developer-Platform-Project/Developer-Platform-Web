@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import { createLogger } from 'redux-logger';
-import App from './App';
-import rootReducer from './modules';
-import './styles/global.css';
+import App from 'App';
+import rootReducer from 'modules';
+import 'styles/global.css';
 
 const logger = createLogger();
 const store = createStore(rootReducer, composeWithDevTools(

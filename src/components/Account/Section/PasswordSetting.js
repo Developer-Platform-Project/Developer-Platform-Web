@@ -1,12 +1,9 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import FormBox from '../../../lib/styles/FormBox';
-import SettingContainer from '../../../lib/styles/SettingContainer';
-import SettingTitle from '../../../lib/styles/SettingTitle';
-import AccountInput from '../../../lib/styles/AccountInput';
-import ErrorMessage from '../../../lib/styles/ErrorMessage';
-import StyledButton from '../../../lib/styles/StyledButton';
+import { SettingContainer } from 'lib/container/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import AccountInput from 'lib/form/AccountInput';
 
 const PasswordSetting = () => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onSubmit'});
@@ -24,10 +21,8 @@ const PasswordSetting = () => {
   return (
     <SettingContainer>
       <ContentTitle>비밀번호 관리</ContentTitle>
-      <SettingTitle
-        title="비밀번호 변경하기"
-        description="계정의 비밀번호를 변경합니다."
-      />
+      <SettingTitle>비밀번호 변경하기</SettingTitle>
+      <SettingDescription>계정의 비밀번호를 변경합니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>
         <AccountInput
           label="현재 비밀번호"
@@ -83,8 +78,8 @@ const PasswordSetting = () => {
           height='42px'
           fontSize='14px'
           type="submit"
-          value="변경하기"
-        />
+        >변경하기
+        </StyledButton>
       </FormBox>
     </SettingContainer>
   )

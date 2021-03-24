@@ -3,55 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from "react-hook-form";
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import { setUserInfo } from '../../modules/common';
-import { media } from '../../lib/styles/style-utils';
-import styled from 'styled-components';
+import { setUserInfo } from 'modules/common';
+import { TextBox, ErrorMessage, LoginTitle } from 'lib/typography/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { LineBox, Dot } from './Styles';
+import StyledCheckbox from 'lib/form/StyledCheckbox';
+import StyledInput from 'lib/form/StyledInput';
 import axios from 'axios';
 import sha256 from 'crypto-js/sha256';
-import StyledCheckbox from '../../lib/styles/StyledCheckbox';
-import FormBox from '../../lib/styles/FormBox';
-import LoginTitle from '../../lib/styles/LoginTitle';
-import StyledButton from '../../lib/styles/StyledButton';
-import StyledInput from '../../lib/styles/StyledInput';
-import ErrorMessage from '../../lib/styles/ErrorMessage';
-import TextContainer from '../../lib/styles/TextContainer';
-import LinkText from '../../lib/styles/LinkText';
 import OAuthLogin from './Section/OAuthLogin';
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  min-width: 406px !important;
-  ${media.mobile`
-      margin-top: 1rem;
-      min-width: 340px !important;
-  `}
-`
-const Linebox = styled.div`
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 0px;
-  color: #ccc;
-`
-const LineTitle = styled.span`
-  font-size: 12px;
-  padding: 0px 24px;
-  white-space: nowrap;
-`
-const Line = styled.hr`
-  width: 100%;
-  border-top: 1px solid #ddd;
-`
-const Dot = styled.div`
-  display: inline-block;
-  width: 2px;
-  height: 2px;
-  margin: 8px 12px;
-  vertical-align: middle;
-  background-color: #999;
-`
 
 const Content = ({history}) => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onSubmit'});
@@ -165,31 +125,26 @@ const Content = ({history}) => {
           check={RememberId}
           value="로그인 유지하기"
         />
-        <StyledButton 
-          type="submit"
-          marginTop="16px"
-          value="로그인"
-        />
+        <StyledButton type="submit" marginTop="16px">로그인</StyledButton>
       </FormBox>
-      <Container>
-        <Linebox>
-          <Line/>
-          <LineTitle>또는</LineTitle>
-          <Line/>
-        </Linebox>
+      <FormBox>
+        <LineBox>
+          <hr/>
+          <span>또는</span>
+          <hr/>
+        </LineBox>
         <OAuthLogin/>
-        <TextContainer
-          span="아직 데브이데아 회원이 아니신가요?"
-        >
+        <TextBox>
+          <span>아직 데브이데아 회원이 아니신가요?</span>
           <Link to="/sign-up">
-            <LinkText>회원가입</LinkText>
+            <span>회원가입</span>
           </Link>
           <Dot></Dot>
           <Link to="/password">
-            <LinkText color='#999'>계정찾기</LinkText>
+            <span style={{color: '#757575'}}>계정찾기</span>
           </Link>
-        </TextContainer>
-      </Container>
+        </TextBox>
+      </FormBox>
     </>
   )
 }

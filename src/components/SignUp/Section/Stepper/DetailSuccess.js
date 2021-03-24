@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import StyledTitle from '../../../../lib/styles/StyledTitle';
-import logo from '../../../../assets/images/logoImage.png';
+import logo from 'assets/images/logoImage.png';
+import { StyledTitle } from 'lib/typography/styles';
 
 const Container = styled.div`
   display: flex;

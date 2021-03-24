@@ -1,9 +1,7 @@
 import React from 'react';
 import { GoogleLogin } from 'react-google-login';
-import SocialLogin from '../../../lib/styles/SocialLogin';
-import AuthIcon from '../../../lib/styles/AuthIcon';
-import AuthText from '../../../lib/styles/AuthText';
-import googleLogo from '../../../assets/images/glogo.png';
+import { SocialLogin, AuthText, AuthIcon } from '../Styles';
+import googleLogo from 'assets/images/glogo.png';
 
 function GoogleLoginHooks() {
   const responseGoogle = (response) => {

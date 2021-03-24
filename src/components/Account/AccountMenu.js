@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { NavLink, withRouter } from "react-router-dom";
+import { withStyles } from '@material-ui/core';
 import styled from "styled-components";
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { withStyles } from '@material-ui/core';
-import ContentTitle from '../../lib/styles/ContentTitle';
-import MiniProfile from './Section/MiniProfile';
+import MiniProfile from './MiniProfile';
 import AccordionMenu from './AccordionMenu';
 
 const Sidebar = styled.div`

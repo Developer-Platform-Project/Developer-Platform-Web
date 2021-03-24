@@ -3,8 +3,8 @@ import MainContainer from '../../../lib/styles/MainContainer';
 import ContentHeader from '../../../lib/styles/ContentHeader';
 import ContentTitle from '../../../lib/styles/ContentTitle';
 import ViewMore from '../../../lib/styles/ViewMore';
-import PrevButton from '../../../lib/styles/PrevButton';
-import NextButton from '../../../lib/styles/NextButton';
+import PrevButton from '../../../lib/form/PrevButton';
+import NextButton from '../../../lib/form/NextButton';
 
 const MainCareer = () => {
   return (

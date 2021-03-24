@@ -1,16 +1,12 @@
-import React, { useRef, useState } from 'react';
+import React, { useCallback, useRef, useState } from 'react';
 import { Controller, useForm } from "react-hook-form";
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import ErrorMessage from '../../lib/styles/ErrorMessage';
-import FormBox from '../../lib/styles/FormBox';
-import LoginTitle from '../../lib/styles/LoginTitle';
-import StyledButton from '../../lib/styles/StyledButton';
-import StyledInput from '../../lib/styles/StyledInput';
-import CustomSelect from '../../lib/styles/CustomSelect';
-import LinkText from '../../lib/styles/LinkText';
-import TextContainer from '../../lib/styles/TextContainer';
-import genderOptions from '../../lib/options/genderOptions'
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { LoginTitle, ErrorMessage, TextBox } from 'lib/typography/styles';
+import StyledInput from 'lib/form/StyledInput';
+import CustomSelect from 'lib/form/CustomSelect';
+import genderOptions from 'lib/options/genderOptions'
 
 const Content = ({history}) => {
   const { register, handleSubmit, watch, control, errors } = useForm({mode: 'onSubmit'});
@@ -19,7 +15,7 @@ const Content = ({history}) => {
 
   const [CheckEmail, setCheckEmail] = useState(true);
   const [IsSelected, setIsSelected] = useState(false);
-  const onSubmit = (user,event) => {
+  const onSubmit = useCallback((user,event) => {
       if(user.gender === null) {
         setIsSelected(true);
       } else {
@@ -27,18 +23,17 @@ const Content = ({history}) => {
         console.log(user);
         history.push('/sign-up/detail');
       }
-  };
+  },[history]);
 
   const [Gender, setGender] = useState(null);
-  const onSelect = (item) => {
+  const onSelect = useCallback((item) => {
     setGender(item);
-  };
+  },[]);
 
   return (
     <>
       <LoginTitle>회원가입</LoginTitle>
-      <FormBox onSubmit={handleSubmit(onSubmit)} width="408px">
-
+      <FormBox onSubmit={handleSubmit(onSubmit)}>
         {/******************* 이메일 *******************/}
         <StyledInput
           label="이메일"
@@ -56,7 +51,7 @@ const Content = ({history}) => {
         {errors.email && errors.email.type === 'pattern'
           && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
         {errors.email && errors.email.type === 'validate'
-        && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
+          && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         {/******************* 비밀번호 *******************/}
         <StyledInput
@@ -135,17 +130,15 @@ const Content = ({history}) => {
           control={control}
         />
         {IsSelected && <ErrorMessage>성별을 입력해주세요.</ErrorMessage>}
-          
-        <StyledButton
-          type="submit"
-          value="회원가입"
-        />
+
+        <StyledButton type="submit">회원가입</StyledButton>
       </FormBox>
-      <TextContainer span="이미 회원가입을 하셨나요?">
+      <TextBox>
+        <span>이미 회원가입을 하셨나요?</span>
         <Link to="/login">
-          <LinkText>로그인 하기</LinkText>
+          <span>로그인 하기</span>
         </Link>
-      </TextContainer>
+      </TextBox>
     </>
   )
 }

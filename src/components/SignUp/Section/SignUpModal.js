@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Backdrop from '@material-ui/core/Backdrop';
@@ -26,10 +26,10 @@ const SignUpModal = ({history}) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
   
-  const handleClose = () => {
+  const handleClose = useCallback(() => {
     setOpen(false);
     history.push('/');
-  };
+  },[history]);
 
   return (
     <>

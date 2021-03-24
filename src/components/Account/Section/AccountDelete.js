@@ -1,12 +1,10 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import FormBox from '../../../lib/styles/FormBox';
-import SettingContainer from '../../../lib/styles/SettingContainer';
-import StyledButton from '../../../lib/styles/StyledButton';
-import ErrorMessage from '../../../lib/styles/ErrorMessage';
-import AccountInput from '../../../lib/styles/AccountInput';
-import AlertBox from '../../../lib/styles/AlertBox';
+import { SettingContainer } from 'lib/container/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import AccountInput from 'lib/form/AccountInput';
+import AlertBox from 'lib/form/AlertBox';
 
 const AccountDelete = () => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onBlur'});
@@ -69,8 +67,8 @@ const AccountDelete = () => {
           fontSize='14px'
           marginTop='16px'
           type="submit"
-          value="계정 삭제하기"
-        />
+        >계정 삭제하기
+        </StyledButton>
       </FormBox>    
     </SettingContainer>
   )

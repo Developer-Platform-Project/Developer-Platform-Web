@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core';
 import React from 'react';
-import stepperIcon from '../../../../assets/images/stepperIcon.png';
-import checkedStepper from '../../../../assets/images/checkedStepper.png';
+import stepperIcon from 'assets/images/stepperIcon.png';
+import checkedStepper from 'assets/images/checkedStepper.png';
 
 const useStepperIconStyles = makeStyles({
   root: {

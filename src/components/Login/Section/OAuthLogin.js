@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import GitHubLogin from './GithubLogin';
 import GoogleLoginHooks from './GoogleLogin';
 import NaverLogin from './NaverLogin';
-import { media } from '../../../lib/styles/style-utils';
+import { media } from 'lib/styles/style-utils';
 
 const Container = styled.div`
   display: flex;

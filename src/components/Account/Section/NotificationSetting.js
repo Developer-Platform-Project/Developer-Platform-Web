@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { Checkbox, FormControlLabel, withStyles, makeStyles } from '@material-ui/core';
 import styled from 'styled-components';
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import SettingTitle from '../../../lib/styles/SettingTitle';
-import SettingContainer from '../../../lib/styles/SettingContainer';
-import StyledButton from '../../../lib/styles/StyledButton';
+import { SettingContainer } from 'lib/container/styles';
+import { StyledButton } from 'lib/form/styles';
+import { SettingTitle, SettingDescription, ContentTitle } from 'lib/typography/styles';
 
 const Container  = styled.div`
   margin-top: 28px;
@@ -84,10 +83,8 @@ const NotificationSetting = () => {
   return (
     <SettingContainer>
       <ContentTitle>알림 설정</ContentTitle>
-      <SettingTitle
-        title="데브이데아 알림설정"
-        description="계정의 알림 수신여부를 설정합니다."
-      />
+      <SettingTitle>데브이데아 알림설정</SettingTitle>
+      <SettingDescription>계정의 알림 수신여부를 설정합니다.</SettingDescription>
       <CheckForm onSubmit={onSubmit}>
         <Container>
           <FormControlLabel
@@ -211,8 +208,8 @@ const NotificationSetting = () => {
           fontSize='14px'
           marginTop='20px'
           type="submit"
-          value="변경사항 저장"
-        />
+        >변경사항 저장
+        </StyledButton>
       </CheckForm>
     </SettingContainer>
   )

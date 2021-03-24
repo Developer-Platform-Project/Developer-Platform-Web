@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { FormControlLabel, Radio, withStyles, makeStyles } from '@material-ui/core';
+import { FormBox, RadioBox } from 'lib/form/styles';
+import { ModalContainer } from 'lib/container/styles';
+import { StyledTitle, ModalLabel } from 'lib/typography/styles';
 import styled from 'styled-components';
-import FormBox from '../../../../lib/styles/FormBox';
-import ModalContainer from '../../../../lib/styles/ModalContainer';
-import ModalLabel from '../../../../lib/styles/ModalLabel';
-import StyledTitle from '../../../../lib/styles/StyledTitle';
-import RadioBox from '../../../../lib/styles/RadioBox';
-import yearsOptions from '../../../../lib/options/yearsOptions'
-import dutyOptions from '../../../../lib/options/dutyOptions';
-import StyledSelector from '../../../../lib/options/StyledSelector';
+import yearsOptions from 'lib/options/yearsOptions'
+import dutyOptions from 'lib/options/dutyOptions';
+import StyledSelector from 'lib/options/StyledSelector';
 
 const RadioContainer = styled.div`
   display: flex;
@@ -19,6 +17,7 @@ const InputBox = styled.div`
   margin-top: 16px;
   margin-bottom: 20px;
 `
+
 const useStyles = makeStyles({
   root: {
     margin: '0px',

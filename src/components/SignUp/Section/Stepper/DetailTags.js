@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import ModalLabel from '../../../../lib/styles/ModalLabel';
-import StyledTitle from '../../../../lib/styles/StyledTitle';
-import FormBox from '../../../../lib/styles/FormBox';
+import { FormBox } from 'lib/form/styles';
+import { ModalLabel, StyledTitle } from 'lib/typography/styles';
 
 const TechContainer = styled.div`
   display: flex;

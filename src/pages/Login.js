@@ -1,7 +1,6 @@
 import React from 'react';
-import MainContainer from '../lib/styles/MainContainer';
-import FlexContainer from '../lib/styles/FlexContainer';
-import Content from '../components/Login/Content';
+import { MainContainer, FlexContainer } from 'lib/container/styles';
+import Content from 'components/Login/Content';
 
 const Login = () => {
   return (

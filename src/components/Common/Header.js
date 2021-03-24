@@ -4,10 +4,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setUserInfo } from '../../modules/common';
 import { IconButton } from '@material-ui/core';
 import styled from 'styled-components';
-import logo  from '../../assets/images/logo.png';
-import search  from '../../assets/images/search.png';
-import alarm from '../../assets/images/alarm.png';
-import heart from '../../assets/images/heart.png';
+import logo  from 'assets/images/logo.png';
+import search  from 'assets/images/search.png';
+import alarm from 'assets/images/alarm.png';
+import heart from 'assets/images/heart.png';
 import PopupHeader from './PopupHeader';
 import Swal from 'sweetalert2';
 
@@ -75,7 +75,7 @@ const Header = ({history}) => {
       confirmButtonText: '확인'
     })
     history.push('/');
-  }, []);
+  }, [dispatch, history]);
 
   return (
     <>

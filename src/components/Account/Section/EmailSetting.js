@@ -1,19 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import AuthIcon from '../../../lib/styles/AuthIcon';
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import ErrorMessage from '../../../lib/styles/ErrorMessage';
-import FormBox from '../../../lib/styles/FormBox';
-import SettingContainer from '../../../lib/styles/SettingContainer';
-import SettingTitle from '../../../lib/styles/SettingTitle';
-import SocialLogin from '../../../lib/styles/SocialLogin';
-import StyledButton from '../../../lib/styles/StyledButton';
-import AccountInput from '../../../lib/styles/AccountInput';
-import LinkText from '../../../lib/styles/LinkText';
-import AlertBox from '../../../lib/styles/AlertBox';
-import googleLogo from '../../../assets/images/glogo.png';
+import { SettingContainer } from 'lib/container/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { AuthIcon } from 'components/Login/Styles';
+import AccountInput from 'lib/form/AccountInput';
+import AlertBox from 'lib/form/AlertBox';
+import googleLogo from 'assets/images/glogo.png';
 
 const Label = styled.label`
   color: #757575;
@@ -49,10 +43,8 @@ const EmailSetting = () => {
   return (
     <SettingContainer>
       <ContentTitle>이메일 관리</ContentTitle>
-      <SettingTitle
-        title="이메일 변경하기"
-        description="이메일은 로그인 또는 회원정보 인증 시 사용됩니다."
-      />
+      <SettingTitle>이메일 변경하기</SettingTitle>
+      <SettingDescription>이메일은 로그인 또는 회원정보 인증 시 사용됩니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>
         <Label>현재 이메일 </Label>
         <CurrentEmail>
@@ -97,17 +89,9 @@ const EmailSetting = () => {
           fontSize='14px'
           marginTop='20px'
           type="submit"
-          value="변경하기"
-        />
+        > 변경하기 
+        </StyledButton>
       </FormBox>
-      <SettingTitle title="이메일 알림 설정"/>
-      <LinkText color="#616874" fontSize="15px" fontWeight="400">
-        수신할 이메일을 관리하려면 
-        <Link to="/account/settings/notifications">
-          <LinkText> 알림 설정</LinkText>
-        </Link>
-        에서 수정해주세요
-      </LinkText>
     </SettingContainer>
   )
 }

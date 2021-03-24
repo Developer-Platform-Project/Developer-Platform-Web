@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Controller, useForm } from "react-hook-form";
-import ContentTitle from '../../lib/styles/ContentTitle';
-import CustomSelect from '../../lib/styles/CustomSelect';
-import SettingTitle from '../../lib/styles/SettingTitle';
-import FormBox from '../../lib/styles/FormBox';
-import AccountInput from '../../lib/styles/AccountInput';
-import SettingContainer from '../../lib/styles/SettingContainer';
-import StyledButton from '../../lib/styles/StyledButton';
-import ErrorMessage from '../../lib/styles/ErrorMessage';
-import LinkText from '../../lib/styles/LinkText';
-import genderOptions from '../../lib/options/genderOptions';
+import { SettingContainer } from 'lib/container/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { FormBox, StyledButton } from 'lib/form/styles';
+import AccountInput from 'lib/form/AccountInput';
+import CustomSelect from 'lib/form/CustomSelect';
+import genderOptions from 'lib/options/genderOptions';
 
-const AccountPage = () => {
+const AccountSetting = () => {
   const { handleSubmit, watch, control} = useForm({mode: 'onBlur'});
 
   const [IsAlert, setIsAlert] = useState({
@@ -52,10 +48,8 @@ const AccountPage = () => {
   return (
     <SettingContainer>
       <ContentTitle>계정 기본 정보</ContentTitle>
-      <SettingTitle
-        title="기본 정보"
-        description="계정의 기본 정보를 설정합니다."
-      />
+      <SettingTitle> 기본 정보 </SettingTitle>
+      <SettingDescription>계정의 기본 정보를 설정합니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>
         <AccountInput
           readOnly
@@ -68,13 +62,12 @@ const AccountPage = () => {
         {alertName &&
           <ErrorMessage>이름은 변경할 수 없습니다.</ErrorMessage>
         }
-
         <AccountInput
           readOnly
           icon
           label="이메일"
           name="email"
-          type="text"
+          type="email"
           value={userEmail}
           onClick={onAlert}
         />
@@ -82,7 +75,7 @@ const AccountPage = () => {
           <ErrorMessage>
             이메일은  
             <Link to="/account/settings/email">
-              <LinkText color='#2b80f2'> 이메일 관리 </LinkText> 
+              <text style={{color: '#2b80f2'}}> 이메일 관리 </text> 
             </Link>
             페이지에서 변경해주세요.
           </ErrorMessage>
@@ -104,11 +97,11 @@ const AccountPage = () => {
           height='42px'
           fontSize='14px'
           type="submit"
-          value="변경사항 저장"
-        />
+        >변경사항 저장
+        </StyledButton>
       </FormBox>
     </SettingContainer>
   )
 }
 
-export default AccountPage;
+export default AccountSetting;

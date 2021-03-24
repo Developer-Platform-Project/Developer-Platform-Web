@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { StepConnector } from '@material-ui/core';
 import Stepper from '@material-ui/core/Stepper';
@@ -6,13 +6,13 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import styled from 'styled-components';
+import DetailProfile from './Stepper/DetailProfile';
+import StepperIcon from './StepperIcon';
+import DetailJob from './Stepper/DetailJob';
+import DetailSuccess from './Stepper/DetailSuccess';
+import DetailRegion from './Stepper/DetailRegion';
+import DetailTags from './Stepper/DetailTags';
 import axios from 'axios';
-import DetailProfile from './Section/DetailProfile';
-import StepperIcon from './Section/StepperIcon';
-import DetailJob from './Section/DetailJob';
-import DetailSuccess from './Section/DetailSuccess';
-import DetailRegion from './Section/DetailRegion';
-import DetailTags from './Section/DetailTags';
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -156,21 +156,24 @@ const DetailStepper = ({history}) => {
   const [Image, setImage] = useState(null);
   const [Preview, setPreview] = useState(null);
   const [checked, setChecked] = useState(true);
-  const handleFile = (e) => {
+  
+  const handleFile = useCallback((e) => {
     const content = e.target.result;
     console.log('file content',  content)
     setPreview(content);
-  }
-  const onImageChange = (file) => {
+  },[])
+
+  const onImageChange = useCallback((file) => {
     let fileData = new FileReader();
     fileData.onloadend = handleFile;
     fileData.readAsDataURL(file);
     setImage(file);
-  }
-  const onEmailCheck = (e) => {
+  },[handleFile])
+
+  const onEmailCheck = useCallback((e) => {
     setChecked(e.target.checked);
     console.log(e.target.checked);
-  }
+  },[])
 
   // Detail Job
   const [selectedValue, setSelectedValue] = useState('newcomer');
@@ -185,14 +188,14 @@ const DetailStepper = ({history}) => {
   const onJobField = (e) => {
     setJobField(e.target.textContent);
   }
-  const handleNext = (e) => {
+  const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const onSubmit = () => {
+  const onSubmit = useCallback(() => {
     const DetailData = {
       "careerYears": Years,
       "interests": [],
@@ -203,15 +206,15 @@ const DetailStepper = ({history}) => {
       "zones": []
     }
     console.log(DetailData);
-    // const formData = new FormData();
-    // formData.append('file', Image)
-    // axios.post('/api/users/upload', formData, {
-    //   header: { 'content-type': 'multipart/form-data' },
-    // }).then((response) => {
-    //   console.log({ response });
-    // });
+    const formData = new FormData();
+    formData.append('file', Image)
+    axios.post('/api/users/upload', formData, {
+      header: { 'content-type': 'multipart/form-data' },
+    }).then((response) => {
+      console.log({ response });
+    });
     history.push('/');
-  }
+  },[history, Image, JobField, Years, checked])
 
   return (
     <div className={classes.root}>

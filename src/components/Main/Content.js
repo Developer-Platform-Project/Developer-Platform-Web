@@ -1,9 +1,11 @@
 import React from 'react';
+import MainStudy from './Section/MainStudy';
 
 const Content = () => {
   return (
     <div>
-      Main Content
+      <div>Main Image</div>
+      <MainStudy/>
     </div>
   )
 }

@@ -1,12 +1,8 @@
 import React from 'react';
-import MainContainer from '../lib/styles/MainContainer';
-import FlexContainer from '../lib/styles/FlexContainer';
-import Content from '../components/SignUp/Content';
-import SignUpModal from '../components/SignUp/DetailModal/SignUpModal';
-import { 
-  Route,
-  withRouter 
-} from "react-router-dom";
+import Content from 'components/SignUp/Content';
+import SignUpModal from 'components/SignUp/Section/SignUpModal';
+import { MainContainer, FlexContainer } from 'lib/container/styles';
+import { Route, withRouter } from "react-router-dom";
 
 const SignUp = ({match}) => {
   return (

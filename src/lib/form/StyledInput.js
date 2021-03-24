@@ -35,7 +35,7 @@ const Input = styled.input`
     border: 1px solid #2b80f2;
   }
 `
-const StyledInput = React.forwardRef(({label,name,type,icon,value,placeholder},ref) => (
+const StyledInput = React.forwardRef(({label,name,type,value,placeholder},ref) => (
       <>
         <Label>{label}</Label>
         <InputBox>
