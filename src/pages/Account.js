@@ -1,6 +1,6 @@
 import React from 'react';
 import { Route, withRouter } from "react-router-dom";
-import { AccountContainer, SidebarContainer } from 'lib/container/styles';
+import { WhiteContainer, AccountContainer, SidebarContainer } from 'lib/container/styles';
 import loadable from '@loadable/component';
 import AccountMenu from 'components/Account/AccountMenu';
 
@@ -15,7 +15,7 @@ const MentoSetting = loadable(() => import('components/Account/Section/MentoSett
 
 function Account({match}) {
   return (
-    <div style={{height: 'calc(100vh - 60px)', backgroundColor:'#fff'}}>
+    <WhiteContainer>
       <SidebarContainer>
         <AccountMenu/>
         <AccountContainer>
@@ -30,7 +30,7 @@ function Account({match}) {
           {/* <Route component={NotFound} /> */}
         </AccountContainer>
       </SidebarContainer>
-    </div>
+    </WhiteContainer>
   )
 }
 

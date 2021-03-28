@@ -1,8 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import TechImage from './TechImage';
+import TechImage from '../Common/TechImage';
 import javaScript from 'assets/images/tech/javaScript.png';
 import user from 'assets/images/user.png';
+import styled, {css} from 'styled-components';
 
 const Card = styled.div`
   width: 33.3%;
@@ -10,8 +10,17 @@ const Card = styled.div`
   padding: 20px 24px;
   margin: 0px 10px;
   border-radius: 8px;
-  box-shadow: 0 3px 6px 0 rgba(170,170,170,0.15);
   background-color: #fff;
+  box-shadow: 0 3px 6px 0 rgba(150,150,150,0.05);
+  &:hover {
+    box-shadow: 0 3px 6px 0 rgba(150,150,150,0.15);
+  }
+  ${(props => props.account && css`
+    border: 1px solid #eaeaea;
+    &:hover {
+      box-shadow: 0 3px 6px 0 rgba(150,150,150,0.15);
+    }
+  `)}
 `
 export const StudyTitle = styled.h2`
   color: #353535;
@@ -21,7 +30,7 @@ export const StudyTitle = styled.h2`
 export const StudyDescription = styled.p`
   color: #757575;
   font-size: 15px;
-  margin-top: 6px;
+  margin-top: 10px;
 `
 const StudyInfo = styled.span`
   color: #757575;
@@ -49,14 +58,14 @@ const HashTag = styled.span`
   font-size: 12px;
 `
 
-const StudyCard = () => {
+const StudyCard = ({account, title, description, location, hashTag}) => {
   return (
-    <Card>
+    <Card account={account}>
       <TechImage
         image={javaScript}
       />
-      <StudyTitle>스터디 모집합니다</StudyTitle>
-      <StudyDescription>잠실에서 자바스크립트 기초부터 공부해서 프로젝트까지 같이 진행하실 분들 구합니다.</StudyDescription>
+      <StudyTitle>{title}</StudyTitle>
+      <StudyDescription>{description}</StudyDescription>
       <Line></Line>
       <div>
         <span><UserImage src={user} alt="user"/></span>
@@ -68,13 +77,15 @@ const StudyCard = () => {
       </div>
       <div>
         <span><UserImage src={user} alt="user"/></span>
-        <StudyInfo> 장소 &nbsp;:&nbsp; 잠실 / 송파구 </StudyInfo>
+        <StudyInfo> 장소 &nbsp;:&nbsp; {location} </StudyInfo>
       </div>
       <Line></Line>
       <TagBox>
-        <HashTag>#백엔드</HashTag>
-        <HashTag>#프론트엔드</HashTag>
-        <HashTag>#웹풀스택</HashTag>
+        {hashTag && hashTag.map((tag) => {
+          return(
+            <HashTag key={tag}>#{tag}</HashTag>
+          )
+        })}
       </TagBox>
     </Card>
   )

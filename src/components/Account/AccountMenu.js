@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { NavLink, withRouter } from "react-router-dom";
 import { withStyles } from '@material-ui/core';
+import { useSelector } from 'react-redux';
 import styled from "styled-components";
 import MuiAccordion from '@material-ui/core/Accordion';
 import MuiAccordionSummary from '@material-ui/core/AccordionSummary';
 import MuiAccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import MiniProfile from './MiniProfile';
+import MiniProfile from '../Common/MiniProfile';
 import AccordionMenu from './AccordionMenu';
 
 const Sidebar = styled.div`
@@ -92,12 +93,7 @@ const AccordionDetails = withStyles((theme) => ({
 }))(MuiAccordionDetails);
 
 const AccountMenu = () => {
-  const [Profile, setProfile] = useState({
-    name: '박지연',
-    nickname: '닉네임'
-  })
-  const { name, nickname } = Profile;
-
+  const user = useSelector((state) => state.common.userInfo);
   const [expanded, setExpanded] = React.useState('panel1');
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
@@ -107,8 +103,8 @@ const AccountMenu = () => {
     <Sidebar>
       <SidebarBox>
         <MiniProfile
-          name = {name}
-          nickname = {nickname}
+          name = {user.name}
+          nickname = {user.nickname}
         />
         <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
           <AccordionSummary
@@ -130,10 +126,10 @@ const AccountMenu = () => {
           </NavLink>
         </MenuTitle>
         <MenuTitle>
-          <NavLink to="/account/study">MY 스터디</NavLink>
+          <NavLink to="/account/study" activeClassName='status-active'>MY 스터디</NavLink>
         </MenuTitle>
         <MenuTitle>
-          <NavLink to="/account/mento">멘토∙멘티</NavLink>
+          <NavLink to="/account/mento" activeClassName='status-active'>멘토∙멘티</NavLink>
         </MenuTitle>
       </SidebarBox>
     </Sidebar>

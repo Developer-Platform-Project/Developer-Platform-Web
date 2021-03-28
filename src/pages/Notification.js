@@ -1,5 +1,5 @@
 import React from 'react'
-import Content from '../components/Notifications/Content'
+import Content from 'components/Notifications/Content'
 import { MainContainer } from 'lib/container/styles';
 
 const Notification = () => {

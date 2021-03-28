@@ -57,3 +57,57 @@ export const ViewMore = styled.button`
   border-radius: 6px;
   margin-left: 8px;
 `
+
+export const StatusBar = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 68px;
+  padding: 0px 20px;
+  border-radius: 6px;
+  background-color: #121D3E;
+  color: #fff;
+  & ul {
+    display: flex;
+    flex-direction: row;
+    & li {
+      padding-right: 60px;
+      & p:first-of-type {
+        font-size: 12px;
+        color: #ddd;
+      }
+      & p:last-child {
+        margin-top: 2px;
+        font-size: 14px;
+        font-weight: 500;
+        color: #fff;
+      }
+    }
+  }
+  & button {
+    width: 100px;
+    height: 40px;
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 40px;
+    color: #eaeaea;
+  }
+`
+
+export const Nodata = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 240px;
+  margin: 10px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px 0 rgba(150,150,150,0.05);
+  color: #999;
+  font-size: 15px;
+  font-weight: 400;
+`

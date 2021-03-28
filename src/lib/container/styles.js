@@ -32,6 +32,12 @@ export const FlexContainer = styled.div`
   height: 80vh;
 `
 
+export const WhiteContainer = styled.div`
+  width: 100%;
+  height: calc(100vh - 60px);
+  background-color: #fff;
+`
+
 export const SidebarContainer = styled.div`
   display: flex;
   max-width: 1200px;

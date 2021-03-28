@@ -58,6 +58,9 @@ const HeaderIcon = styled.img`
   margin-top: -3px;
   vertical-align: middle;
 `
+const Padding = styled.div`
+  padding-top: 60px;
+`
 
 const Header = ({history}) => {
   const userInfo = useSelector(state => state.common.userInfo);
@@ -143,6 +146,7 @@ const Header = ({history}) => {
           )}
         </RightMenu>
       </StyledHeader>
+      <Padding></Padding>
     </>
   );
 };

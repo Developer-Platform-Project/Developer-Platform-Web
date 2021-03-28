@@ -42,7 +42,7 @@ export const TitleDescription = styled.p`
 `
 
 export const SettingTitle = styled.div`
-  font-size: 16px;
+  font-size: ${(props) => props.fontSize || '16px'};
   color: #354053;
   font-weight: 600;
   margin-top: 28px;
@@ -55,7 +55,7 @@ export const SettingDescription = styled.div`
 `
 
 export const ContentTitle = styled.span`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
   line-height: 32px;
   color: #36507E;
@@ -73,7 +73,7 @@ export const StyledTitle = styled.span`
     position: absolute;
     z-index: -1;
     content: "";
-    top: 58%;
+    top: 45%;
     left: 0;
     width: 100%;
     height: 16px;
