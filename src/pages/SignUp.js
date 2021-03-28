@@ -1,8 +1,10 @@
 import React from 'react';
-import Content from 'components/SignUp/Content';
-import SignUpModal from 'components/SignUp/Section/SignUpModal';
 import { MainContainer, FlexContainer } from 'lib/container/styles';
 import { Route, withRouter } from "react-router-dom";
+import loadable from '@loadable/component';
+
+const Content = loadable(() => import('components/SignUp/Content'));
+const SignUpModal = loadable(() => import('components/SignUp/Section/SignUpModal'));
 
 const SignUp = ({match}) => {
   return (

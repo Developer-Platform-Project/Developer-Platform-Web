@@ -1,15 +1,17 @@
 import React from 'react';
 import { Route, withRouter } from "react-router-dom";
 import { AccountContainer, SidebarContainer } from 'lib/container/styles';
+import loadable from '@loadable/component';
 import AccountMenu from 'components/Account/AccountMenu';
-import AccountPage from 'components/Account/Section/AccountSetting';
-import EmailSetting from 'components/Account/Section/EmailSetting';
-import PasswordSetting from 'components/Account/Section/PasswordSetting';
-import NotificationSetting from 'components/Account/Section/NotificationSetting';
-import AccountDelete from 'components/Account/Section/AccountDelete';
-import ProfileSetting from 'components/Account/Section/ProfileSetting';
-import StudySetting from 'components/Account/Section/StudySetting';
-import MentoSetting from 'components/Account/Section/MentoSetting';
+
+const AccountSetting = loadable(() => import('components/Account/Section/AccountSetting'));
+const EmailSetting = loadable(() => import('components/Account/Section/EmailSetting'));
+const PasswordSetting = loadable(() => import('components/Account/Section/PasswordSetting'));
+const NotificationSetting = loadable(() => import('components/Account/Section/NotificationSetting'));
+const AccountDelete = loadable(() => import('components/Account/Section/AccountDelete'));
+const ProfileSetting = loadable(() => import('components/Account/Section/ProfileSetting'));
+const StudySetting = loadable(() => import('components/Account/Section/StudySetting'));
+const MentoSetting = loadable(() => import('components/Account/Section/MentoSetting'));
 
 function Account({match}) {
   return (
@@ -17,7 +19,7 @@ function Account({match}) {
       <SidebarContainer>
         <AccountMenu/>
         <AccountContainer>
-          <Route exact path={`${match.path}/settings`} component={AccountPage} />
+          <Route exact path={`${match.path}/settings`} component={AccountSetting} />
           <Route path={`${match.path}/settings/email`} component={EmailSetting} />
           <Route path={`${match.path}/settings/password`} component={PasswordSetting} />
           <Route path={`${match.path}/settings/notifications`} component={NotificationSetting} />

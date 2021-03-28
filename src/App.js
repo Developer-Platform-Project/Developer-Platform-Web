@@ -1,19 +1,22 @@
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider, unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
+import loadable from '@loadable/component';
 import Header from 'components/Common/Header';
-import FindPassword from 'components/Password/FindPassword';
-import PasswordForm from 'components/Password/PasswordForm';
-import Account from 'pages/Account';
-import Main from 'pages/Main';
-import Login from 'pages/Login';
-import SignUp from 'pages/SignUp';
-import Study from 'pages/Study';
-import Mento from 'pages/Mento';
-import Career from 'pages/Career';
-import TechNews from 'pages/TechNews';
-import Board from 'pages/Board';
-import Like from 'pages/Like';
-import Notification from 'pages/Notification'
+
+const Main = loadable(() => import('pages/Main'));
+const Login = loadable(() => import('pages/Login'));
+const SignUp = loadable(() => import('pages/SignUp'));
+const Account = loadable(() => import('pages/Account'));
+const FindPassword = loadable(() => import('components/Password/FindPassword'));
+const PasswordForm = loadable(() => import('components/Password/PasswordForm'));
+const Study = loadable(() => import('pages/Study'));
+const Mento = loadable(() => import('pages/Mento'));
+const Career = loadable(() => import('pages/Career'));
+const TechNews = loadable(() => import('pages/TechNews'));
+const Board = loadable(() => import('pages/Board'));
+const Like = loadable(() => import('pages/Like'));
+const Notification = loadable(() => import('pages/Notification'));
+
 
 const App = () =>  {
   const theme = unstable_createMuiStrictModeTheme();
