@@ -46,6 +46,13 @@ export const ContentHeader = styled.div`
   padding: 0px 10px;
   margin-bottom: 28px;
   justify-content: space-between;
+  align-items: center;
+`
+
+export const ButtonBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `
 
 export const ViewMore = styled.button`

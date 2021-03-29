@@ -55,6 +55,13 @@ export const SettingDescription = styled.div`
 `
 
 export const ContentTitle = styled.span`
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  color: #353535;
+`
+
+export const AccountTitle = styled.span`
   font-size: 18px;
   font-weight: 500;
   line-height: 32px;

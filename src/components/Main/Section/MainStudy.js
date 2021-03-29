@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { MainContainer } from 'lib/container/styles';
 import { ContentTitle } from 'lib/typography/styles';
-import { ContentHeader, ViewMore } from 'lib/form/styles';
+import { ContentHeader, ButtonBox, ViewMore } from 'lib/form/styles';
 import PrevButton from 'lib/form/PrevButton';
 import NextButton from 'lib/form/NextButton';
 import StudyCard from '../../Common/StudyCard';
@@ -10,7 +9,7 @@ import StudyCard from '../../Common/StudyCard';
 const ContentBox = styled.div`
   display: flex;
   width: 100%;
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 `
 
 const MainStudy = () => {
@@ -22,14 +21,14 @@ const MainStudy = () => {
   }
 
   return (
-    <MainContainer>
+    <>
       <ContentHeader>
-        <ContentTitle>추천! 인기 많은 스터디</ContentTitle>
-        <div style={{display: 'flex'}}>
+        <ContentTitle> ✏️ 추천! 인기 많은 스터디</ContentTitle>
+        <ButtonBox>
           <ViewMore>전체보기</ViewMore>
           <PrevButton/>
           <NextButton/>
-        </div>
+        </ButtonBox>
       </ContentHeader>
       <ContentBox>
         <StudyCard
@@ -51,7 +50,7 @@ const MainStudy = () => {
           hashTag={StudyData.hashTag}
         />
       </ContentBox>
-    </MainContainer>
+    </>
   )
 }
 

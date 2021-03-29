@@ -1,23 +1,21 @@
 import React from 'react';
-import MainContainer from '../../../lib/styles/MainContainer';
-import ContentHeader from '../../../lib/styles/ContentHeader';
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import ViewMore from '../../../lib/styles/ViewMore';
-import PrevButton from '../../../lib/form/PrevButton';
-import NextButton from '../../../lib/form/NextButton';
+import { ContentHeader, ButtonBox, ViewMore } from 'lib/form/styles';
+import { ContentTitle } from 'lib/typography/styles';
+import PrevButton from 'lib/form/PrevButton';
+import NextButton from 'lib/form/NextButton';
 
 const MainTech = () => {
   return (
-    <MainContainer>
+    <>
       <ContentHeader>
-        <ContentTitle>최신 트렌드 테크뉴스</ContentTitle>
-        <div style={{display: 'flex'}}>
-          <ViewMore/>
+        <ContentTitle>⚙️ 최신 트렌드 테크뉴스</ContentTitle>
+        <ButtonBox>
+          <ViewMore>전체보기</ViewMore>
           <PrevButton/>
           <NextButton/>
-        </div>
+        </ButtonBox>
       </ContentHeader>
-    </MainContainer>
+    </>
   )
 }
 

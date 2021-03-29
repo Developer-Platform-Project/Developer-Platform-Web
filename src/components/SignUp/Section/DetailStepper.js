@@ -213,7 +213,7 @@ const DetailStepper = ({history}) => {
     }).then((response) => {
       console.log({ response });
     });
-    history.push('/');
+    history.push('/login');
   },[history, Image, JobField, Years, checked])
 
   return (

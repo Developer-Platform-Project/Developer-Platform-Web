@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { SettingContainer } from 'lib/container/styles';
 import { FormBox, StyledButton } from 'lib/form/styles';
-import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, AccountTitle } from 'lib/typography/styles';
 import { AuthIcon } from 'components/Login/Styles';
 import AccountInput from 'lib/form/AccountInput';
 import AlertBox from 'lib/form/AlertBox';
@@ -42,7 +42,7 @@ const EmailSetting = () => {
 
   return (
     <SettingContainer>
-      <ContentTitle>이메일 관리</ContentTitle>
+      <AccountTitle>이메일 관리</AccountTitle>
       <SettingTitle>이메일 변경하기</SettingTitle>
       <SettingDescription>이메일은 로그인 또는 회원정보 인증 시 사용됩니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>

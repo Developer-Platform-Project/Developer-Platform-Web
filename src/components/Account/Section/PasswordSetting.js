@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { SettingContainer } from 'lib/container/styles';
 import { FormBox, StyledButton } from 'lib/form/styles';
-import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, AccountTitle } from 'lib/typography/styles';
 import AccountInput from 'lib/form/AccountInput';
 
 const PasswordSetting = () => {
@@ -20,7 +20,7 @@ const PasswordSetting = () => {
 
   return (
     <SettingContainer>
-      <ContentTitle>비밀번호 관리</ContentTitle>
+      <AccountTitle>비밀번호 관리</AccountTitle>
       <SettingTitle>비밀번호 변경하기</SettingTitle>
       <SettingDescription>계정의 비밀번호를 변경합니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>

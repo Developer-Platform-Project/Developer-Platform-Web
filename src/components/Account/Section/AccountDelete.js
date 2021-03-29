@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { SettingContainer } from 'lib/container/styles';
 import { FormBox, StyledButton } from 'lib/form/styles';
-import { ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { ErrorMessage, AccountTitle } from 'lib/typography/styles';
 import AccountInput from 'lib/form/AccountInput';
 import AlertBox from 'lib/form/AlertBox';
 
@@ -19,7 +19,7 @@ const AccountDelete = () => {
 
   return (
     <SettingContainer>
-      <ContentTitle>계정 삭제</ContentTitle>
+      <AccountTitle>계정 삭제</AccountTitle>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingTop='20px'>
         <AccountInput
           label="비밀번호"

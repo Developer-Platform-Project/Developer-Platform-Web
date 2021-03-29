@@ -4,13 +4,16 @@ import { SettingTitle } from 'lib/typography/styles';
 import StudyCard from '../../Common/StudyCard';
 import styled from 'styled-components';
 
+const Container = styled.div`
+  margin-bottom: 80px;
+`
 const StudyBox = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: start;
   algin-items: center;
   width: 100%;
-  margin: 20px -10px;
+  margin: 20px 0px;
   padding-bottom: 10px;
 `
 
@@ -23,7 +26,7 @@ const StudySetting = () => {
   }
 
   return (
-    <div>
+    <Container>
       <StatusBar>
         <ul>
           <li>
@@ -50,9 +53,6 @@ const StudySetting = () => {
           location={StudyData.location}
           hashTag={StudyData.hashTag}
         />
-      </StudyBox>
-      <SettingTitle fontSize='18px'> 완료한 스터디 </SettingTitle>
-      <StudyBox>
         <StudyCard 
           account
           title={StudyData.title}
@@ -60,6 +60,9 @@ const StudySetting = () => {
           location={StudyData.location}
           hashTag={StudyData.hashTag}
         />
+      </StudyBox>
+      <SettingTitle fontSize='18px'> 완료한 스터디 </SettingTitle>
+      <StudyBox>
         <StudyCard 
           account
           title={StudyData.title}
@@ -72,7 +75,7 @@ const StudySetting = () => {
       <StudyBox>
         <Nodata>찜한 스터디가 없습니다.</Nodata>
       </StudyBox>
-    </div>
+    </Container>
   )
 }
 

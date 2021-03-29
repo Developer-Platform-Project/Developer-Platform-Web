@@ -35,6 +35,7 @@ export const FlexContainer = styled.div`
 export const WhiteContainer = styled.div`
   width: 100%;
   height: calc(100vh - 60px);
+  overflow-y: scroll;
   background-color: #fff;
 `
 

@@ -1,25 +1,23 @@
 import React from 'react';
-import MainContainer from '../../../lib/styles/MainContainer';
-import ContentHeader from '../../../lib/styles/ContentHeader';
-import ContentTitle from '../../../lib/styles/ContentTitle';
-import ViewMore from '../../../lib/styles/ViewMore';
-import PrevButton from '../../../lib/form/PrevButton';
-import NextButton from '../../../lib/form/NextButton';
+import { ContentHeader, ViewMore, ButtonBox } from 'lib/form/styles';
+import { ContentTitle } from 'lib/typography/styles';
+import PrevButton from 'lib/form/PrevButton';
+import NextButton from 'lib/form/NextButton';
 
-const MainCareer = () => {
+const MainCommunity = () => {
   return (
-    <MainContainer>
+    <>
       <ContentHeader>
-        <ContentTitle>이데아 커뮤니티 보기</ContentTitle>
-        <div style={{display: 'flex'}}>
-          <ViewMore/>
+        <ContentTitle>👫 이데아 커뮤니티 보기</ContentTitle>
+        <ButtonBox>
+          <ViewMore>전체보기</ViewMore>
           <PrevButton/>
           <NextButton/>
-        </div>
+        </ButtonBox>
       </ContentHeader>
-      <div style={{height: '1000px'}}></div>
-    </MainContainer>
+      <div style={{height: '100px'}}></div>
+    </>
   )
 }
 
-export default MainCareer;
+export default MainCommunity;

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Controller, useForm } from "react-hook-form";
 import { SettingContainer } from 'lib/container/styles';
-import { SettingTitle, SettingDescription, ErrorMessage, ContentTitle } from 'lib/typography/styles';
+import { SettingTitle, SettingDescription, ErrorMessage, AccountTitle } from 'lib/typography/styles';
 import { FormBox, StyledButton } from 'lib/form/styles';
 import AccountInput from 'lib/form/AccountInput';
 import CustomSelect from 'lib/form/CustomSelect';
@@ -36,9 +36,7 @@ const AccountSetting = () => {
 
   const onAlert = (e) => {
     const Name = e.currentTarget.name;
-    if(Name === 'id') {
-      setIsAlert({...IsAlert, alertId : true})
-    } else if(Name === 'name') {
+    if(Name === 'name') {
       setIsAlert({...IsAlert, alertName : true})
     } else if(Name === 'email') {
       setIsAlert({...IsAlert, alertEmail: true});
@@ -47,7 +45,7 @@ const AccountSetting = () => {
 
   return (
     <SettingContainer>
-      <ContentTitle>계정 기본 정보</ContentTitle>
+      <AccountTitle>계정 기본 정보</AccountTitle>
       <SettingTitle> 기본 정보 </SettingTitle>
       <SettingDescription>계정의 기본 정보를 설정합니다.</SettingDescription>
       <FormBox onSubmit={handleSubmit(onSubmit)} paddingBottom='20px'>

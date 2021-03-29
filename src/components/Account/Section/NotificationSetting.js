@@ -3,7 +3,7 @@ import { Checkbox, FormControlLabel, withStyles, makeStyles } from '@material-ui
 import styled from 'styled-components';
 import { SettingContainer } from 'lib/container/styles';
 import { StyledButton } from 'lib/form/styles';
-import { SettingTitle, SettingDescription, ContentTitle } from 'lib/typography/styles';
+import { SettingTitle, SettingDescription, AccountTitle } from 'lib/typography/styles';
 
 const Container  = styled.div`
   margin-top: 28px;
@@ -82,7 +82,7 @@ const NotificationSetting = () => {
 
   return (
     <SettingContainer>
-      <ContentTitle>알림 설정</ContentTitle>
+      <AccountTitle>알림 설정</AccountTitle>
       <SettingTitle>데브이데아 알림설정</SettingTitle>
       <SettingDescription>계정의 알림 수신여부를 설정합니다.</SettingDescription>
       <CheckForm onSubmit={onSubmit}>
