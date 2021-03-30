@@ -1,24 +1,27 @@
 import styled from '@emotion/styled';
 import { media } from 'lib/styles/style-utils';
 
+export const WrapContainer = styled.div`
+  min-height: 100%;
+  position: relative;
+  padding-top: 60px;
+  /* padding-bottom: footer height */
+`;
+
 export const MainContainer = styled.div`
+  display: block;
   margin: 0 auto;
-  margin-top: 2rem;
   width: 1200px;
+  height: auto;
   transition: all .3s;
   position: relative;
-
   ${media.desktop`
       width: 990px;
   `}
-
   ${media.tablet`
-      margin-top: 1rem;
       width: calc(100% - 2rem);
   `}
-
   ${media.mobile`
-      margin-top: 0.5rem;
       width: calc(100% - 1rem);        
   `}
 `
@@ -29,7 +32,7 @@ export const FlexContainer = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 80vh;
+  height: calc(100vh - 60px);
 `
 
 export const WhiteContainer = styled.div`

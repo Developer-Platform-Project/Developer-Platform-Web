@@ -107,6 +107,7 @@ html, body, #root {
     "Noto Sans",
     "Noto Sans CJK KR",
     sans-serif;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 div .active {

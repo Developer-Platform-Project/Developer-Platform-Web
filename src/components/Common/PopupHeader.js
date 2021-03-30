@@ -58,12 +58,11 @@ const StyledMenu = withStyles({
 const StyledMenuItem = withStyles((theme) => ({
   root: {
     padding: 0,
-    '&:nth-child(4)': {
-      paddingBottom: '6px',
-    },
     '&:last-child': {
-      paddingTop: '1px',
       borderTop: '1px solid #39444D',
+      '& a': {
+        marginTop: '8px',
+      }
     },
   },
 }))(MenuItem);
@@ -80,7 +79,7 @@ export default function PopupHeader({logout}) {
   };
 
   return (
-    <span style={{paddingRight: '8px'}}>
+    <span>
       <IconButton
         aria-controls="fade-menu"
         aria-haspopup="true"

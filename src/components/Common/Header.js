@@ -14,6 +14,9 @@ import Swal from 'sweetalert2';
 const StyledHeader = styled.div`
   display: flex;
   position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   z-index: 5;
   width: 100%;
   height: 60px;
@@ -24,7 +27,7 @@ const StyledHeader = styled.div`
 const LeftMenu = styled.div`
   display: flex;
   padding: 18px 0px;
-  padding-left: 28px;
+  padding-left: 24px;
   text-align: left;
   align-items: center;
 `
@@ -45,6 +48,9 @@ const SubMenu = styled.span`
 const IconMenu = styled.span`
   padding-right: 4px;
   line-height: 60px;
+  & span:last-child {
+    padding-right: 8px;
+  }
 `
 const MiddleMenu = styled.div`
   padding-left: 60px;
@@ -57,9 +63,6 @@ const HeaderIcon = styled.img`
   height: 20px;
   margin-top: -3px;
   vertical-align: middle;
-`
-const Padding = styled.div`
-  padding-top: 60px;
 `
 
 const Header = ({history}) => {
@@ -146,7 +149,6 @@ const Header = ({history}) => {
           )}
         </RightMenu>
       </StyledHeader>
-      <Padding></Padding>
     </>
   );
 };

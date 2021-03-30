@@ -11,12 +11,6 @@ import Swal from 'sweetalert2';
 const FindPassword = () => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onSubmit'});
 
-  const [Checked, setChecked] = React.useState({
-    checkName: true,
-    checkEmail: true,
-  });
-  const {checkName, checkEmail} = Checked;
-
   const onSubmit = (user,event) => {
     event.target.reset();
     console.log(user);
@@ -41,13 +35,10 @@ const FindPassword = () => {
             placeholder="이름"
             ref={register({ 
               required: true, 
-              validate: value => checkName
             })}
           />
           {errors.name && errors.name.type === 'required'
             && <ErrorMessage>이름을 입력해주세요.</ErrorMessage>}
-          {errors.name && errors.name.type === 'validate'
-            && <ErrorMessage>이름이 일치하지 않습니다.</ErrorMessage>}
 
           <StyledInput
             label="이메일"

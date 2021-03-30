@@ -1,6 +1,8 @@
+import React from 'react';
+import loadable from '@loadable/component';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { ThemeProvider, unstable_createMuiStrictModeTheme } from '@material-ui/core/styles';
-import loadable from '@loadable/component';
+import { WrapContainer } from 'lib/container/styles';
 import Header from 'components/Common/Header';
 
 const Main = loadable(() => import('pages/Main'));
@@ -21,26 +23,28 @@ const Notification = loadable(() => import('pages/Notification'));
 const App = () =>  {
   const theme = unstable_createMuiStrictModeTheme();
   return (
-    <Router>
-      <ThemeProvider theme={theme}>
-        <Header/>
-        <Switch>
-          <Route exact path='/' component={Main}/>
-          <Route path='/login' component={Login}/>
-          <Route path='/sign-up' component={SignUp}/>
-          <Route path='/account' component={Account} />
-          <Route path='/password' component={FindPassword}/>
-          <Route path='/passwordform' component={PasswordForm}/>
-          <Route path='/study' component={Study}/>
-          <Route path='/mento' component={Mento}/>
-          <Route path='/career' component={Career}/>
-          <Route path='/technews' component={TechNews}/>
-          <Route path='/board' component={Board}/>
-          <Route path='/like' component={Like}/>
-          <Route path='/notifications' component={Notification}/>
-        </Switch>
-      </ThemeProvider>
-    </Router>
+    <WrapContainer>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <Header/>
+          <Switch>
+            <Route exact path='/' component={Main}/>
+            <Route path='/login' component={Login}/>
+            <Route path='/sign-up' component={SignUp}/>
+            <Route path='/account' component={Account} />
+            <Route path='/password' component={FindPassword}/>
+            <Route path='/passwordform' component={PasswordForm}/>
+            <Route path='/study' component={Study}/>
+            <Route path='/mento' component={Mento}/>
+            <Route path='/career' component={Career}/>
+            <Route path='/technews' component={TechNews}/>
+            <Route path='/board' component={Board}/>
+            <Route path='/like' component={Like}/>
+            <Route path='/notifications' component={Notification}/>
+          </Switch>
+        </ThemeProvider>
+      </Router>
+    </WrapContainer>
   );
 }
 
