@@ -13,7 +13,6 @@ const Content = ({history}) => {
   const password = useRef();
   password.current = watch("password");
 
-  const [CheckEmail, setCheckEmail] = useState(true);
   const [IsSelected, setIsSelected] = useState(false);
   const onSubmit = useCallback((user,event) => {
       if(user.gender === null) {
@@ -43,15 +42,12 @@ const Content = ({history}) => {
           ref={register({ 
             required: true, 
             pattern: /^\S+@\S+$/i,
-            validate: value => CheckEmail
           })} 
         />
         {errors.email && errors.email.type === 'required'
           && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
         {errors.email && errors.email.type === 'pattern'
           && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
-        {errors.email && errors.email.type === 'validate'
-          && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         {/******************* 비밀번호 *******************/}
         <StyledInput

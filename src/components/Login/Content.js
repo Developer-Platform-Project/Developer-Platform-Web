@@ -18,11 +18,6 @@ const Content = ({history}) => {
   const apiUrl = useSelector(state => state.common.apiUrl);
   const dispatch = useDispatch();
 
-  const [Checked, setChecked] = useState({
-    checkEmail: true,
-    checkPassword: true,
-  })
-  const { checkEmail, checkPassword } = Checked; 
   const [RememberId, setRememberId] = useState(false);
 
   const onSubmit = (user,event) => {
@@ -93,15 +88,12 @@ const Content = ({history}) => {
           ref={register({ 
             required: true, 
             pattern: /^\S+@\S+$/i,
-            validate: value => checkEmail
           })} 
         />
         {errors.email && errors.email.type === 'required'
           && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
         {errors.email && errors.email.type === 'pattern'
           && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
-        {errors.email && errors.email.type === 'validate'
-        && <ErrorMessage>이메일이 일치하지 않습니다.</ErrorMessage>}
 
         <StyledInput
           label="비밀번호"
@@ -111,15 +103,13 @@ const Content = ({history}) => {
           ref={register({ 
             required: true, 
             minLength: 8,
-            validate: value => checkPassword
           })}
         />
         {errors.password && errors.password.type === 'required' 
           && <ErrorMessage>비밀번호를 확인해주세요.</ErrorMessage>}
         {errors.password && errors.password.type === 'minLength' 
           && <ErrorMessage>비밀번호를 8글자 이상 입력해주세요.</ErrorMessage>}
-        {errors.password && errors.password.type === 'validate' 
-          && <ErrorMessage>비밀번호가 일치하지 않습니다.</ErrorMessage>}
+          
         <StyledCheckbox
           onClick={onCheck}
           check={RememberId}

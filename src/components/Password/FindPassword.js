@@ -57,15 +57,12 @@ const FindPassword = () => {
             ref={register({ 
               required: true, 
               pattern: /^\S+@\S+$/i,
-              validate: value => checkEmail
             })} 
           />
           {errors.email && errors.email.type === 'required'
             && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
           {errors.email && errors.email.type === 'pattern'
             && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
-          {errors.email && errors.email.type === 'validate'
-            && <ErrorMessage>이메일이 일치하지 않습니다.</ErrorMessage>}
 
           <StyledButton type="submit"> 재설정 메일 보내기 </StyledButton>
         </FormBox>

@@ -7,8 +7,6 @@ import AccountInput from 'lib/form/AccountInput';
 
 const PasswordSetting = () => {
   const { register, handleSubmit, watch, errors } = useForm({mode: 'onSubmit'});
-
-  const [CheckPassword, setCheckPassword] = useState(true);
   
   const password = useRef();
   password.current = watch("newPassword");
@@ -32,15 +30,12 @@ const PasswordSetting = () => {
           ref={register({ 
             required: true, 
             minLength: 8,
-            validate: value => CheckPassword
           })}
         />
         {errors.password && errors.password.type === 'required' 
           && <ErrorMessage>비밀번호를 입력해주세요.</ErrorMessage>}
         {errors.password && errors.password.type === 'minLength' 
           && <ErrorMessage>비밀번호를 8글자 이상 입력해주세요.</ErrorMessage>}
-        {errors.password && errors.password.type === 'validate'
-          && <ErrorMessage>현재 비밀번호가 맞지 않습니다.</ErrorMessage>}
 
         <AccountInput
           label="새 비밀번호"

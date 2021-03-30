@@ -32,7 +32,6 @@ const EmailSetting = () => {
   const { register, handleSubmit, watch, control, errors } = useForm({mode: 'onBlur'});
 
   const [UserEmail, setUserEmail] = useState("jyp933@gmail.com");
-  const [CheckEmail, setCheckEmail] = useState(true);
   const [IsAuth, setIsAuth] = useState(true);
 
   const onSubmit = (user,event) => {
@@ -73,15 +72,12 @@ const EmailSetting = () => {
           ref={register({ 
             required: true, 
             pattern: /^\S+@\S+$/i,
-            validate: value => CheckEmail
           })} 
         />
         {errors.newEmail && errors.newEmail.type === 'required'
           && <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>}
         {errors.newEmail && errors.newEmail.type === 'pattern'
           && <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>}
-        {errors.newEmail && errors.newEmail.type === 'validate'
-        && <ErrorMessage>이미 가입된 이메일입니다.</ErrorMessage>}
 
         <StyledButton
           width='120px'
