@@ -36,7 +36,7 @@ export const RecruitingBox = styled.div`
   margin-top: 8px;
 `;
 
-export const Recruiting = styled.p`
+export const Recruiting = styled.span`
   font-size: 12px !important;
   border: 1px solid;
   padding: 2px 6px;
@@ -101,6 +101,15 @@ export const HashTagBox = styled.div`
 
 export const HashTag = styled.span`
   background-color: #f2f4f8;
+  border-radius: 4px;
+  margin-right: 10px;
+  padding: 8px;
+  font-size: 12px;
+  color: #32476a;
+`;
+
+export const MemberTag = styled.span`
+  background-color: #ffe0e7;
   border-radius: 4px;
   margin-right: 10px;
   padding: 8px;
