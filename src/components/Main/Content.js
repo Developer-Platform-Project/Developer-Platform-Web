@@ -1,5 +1,5 @@
 import React from 'react';
-import { MainContainer } from 'lib/container/styles';
+import { MainContainer } from 'styles/container';
 import MainStudy from './Section/MainStudy';
 import MainImage from './Section/MainImage';
 import MainCareer from './Section/MainCareer';
@@ -9,15 +9,15 @@ import MainCommunity from './Section/MainCommunity';
 const Content = () => {
   return (
     <div>
-      <MainImage/>
+      <MainImage />
       <MainContainer>
-        <MainStudy/>
-        <MainCareer/>
-        <MainTech/>
-        <MainCommunity/>
+        <MainStudy />
+        <MainCareer />
+        <MainTech />
+        <MainCommunity />
       </MainContainer>
     </div>
-  )
-}
+  );
+};
 
 export default Content;

@@ -13,25 +13,30 @@ const useStepperIconStyles = makeStyles({
   },
   completed: {
     width: '7px',
-    height: '7px'
+    height: '7px',
   },
   active: {
     width: '7px',
-    height: '7px'
-  }
+    height: '7px',
+  },
 });
 
-const StepperIcon = (props) => {
+const StepperIcon = props => {
   const classes = useStepperIconStyles();
   const { completed } = props;
   return (
     <div className={classes.root}>
-      {completed 
-        ? <img src={checkedStepper} alt='checkedStepper' className={classes.completed} /> 
-        : <img src={stepperIcon} alt="stepperIcon" className={classes.active} />
-      }    
+      {completed ? (
+        <img
+          src={checkedStepper}
+          alt="checkedStepper"
+          className={classes.completed}
+        />
+      ) : (
+        <img src={stepperIcon} alt="stepperIcon" className={classes.active} />
+      )}
     </div>
-  )
-}
+  );
+};
 
 export default StepperIcon;

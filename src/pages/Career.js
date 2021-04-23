@@ -1,12 +1,8 @@
 import React from 'react';
-import { MainContainer } from 'lib/container/styles';
+import { MainContainer } from 'styles/container';
 
 const Career = () => {
-  return (
-    <MainContainer>
-      Career
-    </MainContainer>
-  )
-}
+  return <MainContainer>Career</MainContainer>;
+};
 
-export default Career
+export default Career;

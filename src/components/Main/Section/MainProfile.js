@@ -10,7 +10,7 @@ const MainProfile = () => {
         flex: 1,
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
       }}
     >
       <div>

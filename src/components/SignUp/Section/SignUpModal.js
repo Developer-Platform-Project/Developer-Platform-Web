@@ -5,7 +5,7 @@ import Backdrop from '@material-ui/core/Backdrop';
 import Fade from '@material-ui/core/Fade';
 import DetailStepper from './DetailStepper';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(theme => ({
   modal: {
     display: 'flex',
     alignItems: 'center',
@@ -22,14 +22,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const SignUpModal = ({history}) => {
+const SignUpModal = ({ history }) => {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
-  
+
   const handleClose = useCallback(() => {
     setOpen(false);
     history.push('/');
-  },[history]);
+  }, [history]);
 
   return (
     <>
@@ -47,12 +47,12 @@ const SignUpModal = ({history}) => {
       >
         <Fade in={open}>
           <div className={classes.paper}>
-            <DetailStepper history={history}/>
+            <DetailStepper history={history} />
           </div>
         </Fade>
       </Modal>
     </>
-  )
-}
+  );
+};
 
 export default SignUpModal;

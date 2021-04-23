@@ -1,12 +1,8 @@
 import React from 'react';
-import { MainContainer } from 'lib/container/styles';
+import { MainContainer } from 'styles/container';
 
 const Board = () => {
-  return (
-    <MainContainer>
-      Board
-    </MainContainer>
-  )
-}
+  return <MainContainer>Board</MainContainer>;
+};
 
-export default Board
+export default Board;

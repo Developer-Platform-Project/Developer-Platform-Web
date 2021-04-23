@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const ProfileSetting = () => {
-  return (
-    <>
-      ProfileSetting
-    </>
-  )
-}
+  return <>ProfileSetting</>;
+};
 
 export default ProfileSetting;

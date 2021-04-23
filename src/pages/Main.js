@@ -4,7 +4,7 @@ import Content from 'components/Main/Content';
 const Main = () => {
   return (
     <>
-      <Content/>
+      <Content />
     </>
   );
 };

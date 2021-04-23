@@ -1,17 +1,18 @@
+/* eslint-disable react/display-name */
 import React from 'react';
 import styled from 'styled-components';
 
 const Label = styled.label`
-  color: #6B788C;
+  color: #6b788c;
   font-size: 12px;
   line-height: 18px;
   text-align: left;
   margin-top: 14px;
-`
+`;
 const InputBox = styled.div`
   position: relative;
   margin-top: 4px;
-`
+`;
 const Input = styled.input`
   width: 100%;
   height: 42px;
@@ -21,9 +22,9 @@ const Input = styled.input`
   border: 1px solid #a9c5eb;
   background-color: #edf5ff;
   &::placeholder {
-       color: #A2A5B7;
-       font-size: 14px;
-       line-height: 42px;
+    color: #a2a5b7;
+    font-size: 14px;
+    line-height: 42px;
   }
   &:hover {
     border: 1px solid #2b80f2;
@@ -34,20 +35,22 @@ const Input = styled.input`
   &:focus {
     border: 1px solid #2b80f2;
   }
-`
-const StyledInput = React.forwardRef(({label,name,type,value,placeholder},ref) => (
-      <>
-        <Label>{label}</Label>
-        <InputBox>
-          <Input 
-            name={name} 
-            type={type}
-            value={value} 
-            ref={ref}
-            placeholder={placeholder}
-          />
-        </InputBox>
-      </>
-));
+`;
+const StyledInput = React.forwardRef(
+  ({ label, name, type, value, placeholder }, ref) => (
+    <>
+      <Label>{label}</Label>
+      <InputBox>
+        <Input
+          name={name}
+          type={type}
+          value={value}
+          ref={ref}
+          placeholder={placeholder}
+        />
+      </InputBox>
+    </>
+  ),
+);
 
 export default StyledInput;

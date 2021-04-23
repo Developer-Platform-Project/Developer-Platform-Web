@@ -100,7 +100,10 @@ html, body, #root {
   width: 100%;
   height: 100%;
   margin: 0 auto;
+  transition: all 0.2s ease;
   letter-spacing: -0.015rem;
+  word-break: keep-all;
+  word-wrap: break-word;
   font-family:
     "Roboto",
     "Helvetica Neue",
@@ -121,6 +124,11 @@ li .active {
   font-weight: 500;
   color: #2B80F2;
   background-color: transparent;
+}
+
+.MuiIconButton-label > a {
+  width: 24px !important;
+  height: 24px !important;
 }
 
 .MuiAutocomplete-popper > div{

@@ -6,14 +6,8 @@ import { IconButton } from '@material-ui/core';
 import Fade from '@material-ui/core/Fade';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import user from 'assets/images/user.png';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
-const HeaderIcon = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-top: -3px;
-  vertical-align: middle;
-`
 const MenuText = styled.div`
   display: flex;
   flex-direction: column;
@@ -25,10 +19,10 @@ const MenuText = styled.div`
   width: 100%;
   height: 52px;
   &:hover {
-    background-color: #11172F;
+    background-color: #11172f;
     color: #fff;
   }
-`
+`;
 
 const StyledMenu = withStyles({
   paper: {
@@ -39,7 +33,7 @@ const StyledMenu = withStyles({
     width: '204px',
     height: '278px',
   },
-})((props) => (
+})(props => (
   <Menu
     elevation={0}
     getContentAnchorEl={null}
@@ -55,22 +49,22 @@ const StyledMenu = withStyles({
   />
 ));
 
-const StyledMenuItem = withStyles((theme) => ({
+const StyledMenuItem = withStyles(theme => ({
   root: {
     padding: 0,
     '&:last-child': {
       borderTop: '1px solid #39444D',
       '& a': {
         marginTop: '8px',
-      }
+      },
     },
   },
 }))(MenuItem);
 
-export default function PopupHeader({logout}) {
+export default function PopupHeader({ logout }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
-  const handleClick = (event) => {
+  const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -84,8 +78,9 @@ export default function PopupHeader({logout}) {
         aria-controls="fade-menu"
         aria-haspopup="true"
         onClick={handleClick}
+        style={{ paddingRight: '28px' }}
       >
-        <HeaderIcon src={user} alt="user"/>
+        <AccountCircleIcon style={{ fontSize: '24px', color: '#aaa' }} />
       </IconButton>
       <StyledMenu
         id="customized-menu"
@@ -97,37 +92,27 @@ export default function PopupHeader({logout}) {
       >
         <StyledMenuItem>
           <MenuText>
-            <Link to='/account/settings'>
-              계정 관리
-            </Link>
+            <Link to="/account/settings">계정 관리</Link>
           </MenuText>
         </StyledMenuItem>
         <StyledMenuItem>
           <MenuText>
-            <Link to='/account/profile'>
-              내 프로필
-            </Link>
+            <Link to="/account/profile">내 프로필</Link>
           </MenuText>
         </StyledMenuItem>
         <StyledMenuItem>
           <MenuText>
-            <Link to='/account/study'>
-              MY 스터디
-            </Link>
+            <Link to="/account/study">MY 스터디</Link>
           </MenuText>
         </StyledMenuItem>
         <StyledMenuItem>
           <MenuText>
-            <Link to='/account/mento'>
-              멘토 ∙ 멘티
-            </Link>
+            <Link to="/account/mento">멘토 ∙ 멘티</Link>
           </MenuText>
         </StyledMenuItem>
         <StyledMenuItem>
           <MenuText onClick={logout}>
-            <Link to='/'>
-              로그아웃
-            </Link>
+            <Link to="/">로그아웃</Link>
           </MenuText>
         </StyledMenuItem>
       </StyledMenu>

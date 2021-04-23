@@ -1,29 +1,35 @@
+/* eslint-disable import/no-named-as-default */
 import React, { useState } from 'react';
-import { FormControlLabel, Radio, withStyles, makeStyles } from '@material-ui/core';
-import { FormBox, RadioBox } from 'lib/form/styles';
-import { ModalContainer } from 'lib/container/styles';
-import { StyledTitle, ModalLabel } from 'lib/typography/styles';
+import {
+  FormControlLabel,
+  Radio,
+  withStyles,
+  makeStyles,
+} from '@material-ui/core';
+import { FormBox, RadioBox } from 'styles/form/styles';
+import { ModalContainer } from 'styles/container';
+import { StyledTitle, ModalLabel } from 'styles/typography';
 import styled from 'styled-components';
-import yearsOptions from 'lib/options/yearsOptions'
-import dutyOptions from 'lib/options/dutyOptions';
+import yearsOption from 'lib/options/yearsOptions';
+import dutyOption from 'lib/options/dutyOptions';
 import StyledSelector from 'lib/options/StyledSelector';
 
 const RadioContainer = styled.div`
   display: flex;
   color: #505050;
   align-items: center;
-`
+`;
 const InputBox = styled.div`
   margin-top: 16px;
   margin-bottom: 20px;
-`
+`;
 
 const useStyles = makeStyles({
   root: {
     margin: '0px',
     padding: '0px',
-  }
-})
+  },
+});
 const BlueRadio = withStyles({
   root: {
     color: '#2b80f2',
@@ -32,14 +38,23 @@ const BlueRadio = withStyles({
     },
   },
   checked: {},
-})((props) => <Radio color="default" {...props} />);
+})(props => <Radio color="default" {...props} />);
 
-const DetailJob = ({onCareerYears, onJobField, handleRadio, selectedValue, careerYears, jobField}) => {
+const DetailJob = ({
+  onCareerYears,
+  onJobField,
+  handleRadio,
+  selectedValue,
+  careerYears,
+  jobField,
+}) => {
   const classes = useStyles();
   return (
-    <ModalContainer width="428px">
+    <ModalContainer>
       <StyledTitle fontSize="30px">어떤 일을 하고계세요?</StyledTitle>
-      <ModalLabel title="true">입력한 정보에 맞게 콘텐츠를 추천해드려요😊</ModalLabel>
+      <ModalLabel title="true">
+        입력한 정보에 맞게 콘텐츠를 추천해드려요😊
+      </ModalLabel>
       <FormBox paddingTop="10px">
         <RadioContainer>
           <RadioBox>
@@ -79,14 +94,14 @@ const DetailJob = ({onCareerYears, onJobField, handleRadio, selectedValue, caree
             />
           </RadioBox>
         </RadioContainer>
-        {selectedValue === 'experienced' &&
+        {selectedValue === 'experienced' && (
           <>
             <ModalLabel label="true">직업분야</ModalLabel>
             <StyledSelector
               name="jobField"
               SelectedOption={jobField}
               onChange={onJobField}
-              letOptions={dutyOptions}
+              letOptions={dutyOption}
               placeholder="직업 분야를 선택해주세요"
             />
             <InputBox>
@@ -95,15 +110,15 @@ const DetailJob = ({onCareerYears, onJobField, handleRadio, selectedValue, caree
                 name="careerYears"
                 SelectedOption={careerYears}
                 onChange={onCareerYears}
-                letOptions={yearsOptions}
+                letOptions={yearsOption}
                 placeholder="업무 경력을 선택해주세요"
               />
             </InputBox>
           </>
-        }
+        )}
       </FormBox>
     </ModalContainer>
-  )
-}
+  );
+};
 
 export default DetailJob;

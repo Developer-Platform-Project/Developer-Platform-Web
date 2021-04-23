@@ -4,7 +4,7 @@ const SET_USER_INFO = 'SET_USER_INFO';
 // Actions
 export const setUserInfo = userInfo => ({
   type: SET_USER_INFO,
-  userInfo 
+  userInfo,
 });
 
 // Reducer
@@ -14,8 +14,8 @@ const initialState = {
     userEmail: null,
     password: null,
     nickname: null,
-    name: null
-  }
+    name: null,
+  },
 };
 
 const commonReducer = (state = initialState, action) => {

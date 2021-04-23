@@ -1,11 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 const Content = () => {
-  return (
-    <div>
-      Notifications
-    </div>
-  )
-}
+  return <div>Notifications</div>;
+};
 
-export default Content
+export default Content;

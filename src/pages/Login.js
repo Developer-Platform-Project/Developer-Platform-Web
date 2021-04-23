@@ -1,12 +1,12 @@
 import React from 'react';
-import { MainContainer, FlexContainer } from 'lib/container/styles';
+import { MainContainer, FlexContainer } from 'styles/container';
 import Content from 'components/Login/Content';
 
 const Login = () => {
   return (
     <MainContainer>
       <FlexContainer>
-        <Content/>
+        <Content />
       </FlexContainer>
     </MainContainer>
   );

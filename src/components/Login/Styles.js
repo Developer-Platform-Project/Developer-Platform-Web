@@ -1,5 +1,4 @@
 import styled from '@emotion/styled';
-import { media } from 'lib/styles/style-utils';
 
 export const LineBox = styled.div`
   display: flex;
@@ -17,7 +16,7 @@ export const LineBox = styled.div`
     width: 100%;
     border-top: 1px solid #ddd;
   }
-`
+`;
 
 export const Dot = styled.div`
   display: inline-block;
@@ -27,7 +26,7 @@ export const Dot = styled.div`
   margin-right: 16px;
   vertical-align: middle;
   background-color: #999;
-`
+`;
 
 export const SocialLogin = styled.div`
   display: flex;
@@ -37,19 +36,18 @@ export const SocialLogin = styled.div`
   border-radius: 4px;
   box-shadow: 0 3px 6px 0 rgba(170, 170, 170, 0.16);
   cursor: pointer;
-  min-width: 127px !important;
-  ${media.mobile`
-      margin-top: 1rem;
-      min-width: 110px !important;
-  `}
-  color: ${(props) => props.color || "#757575"};
-  background-color: ${(props) => props.backgroundColor || "#fff"};
-`
+  max-width: 128px;
+  width: 100%;
+  margin: 0px 4px;
+  transition: all 0.2s ease;
+  color: ${props => props.color || '#757575'};
+  background-color: ${props => props.backgroundColor || '#fff'};
+`;
 
 export const AuthIcon = styled.img`
   width: 20px;
   height: 20px;
-`
+`;
 
 export const AuthText = styled.span`
   font-size: 14px;
@@ -57,4 +55,4 @@ export const AuthText = styled.span`
   line-height: 14px;
   letter-spacing: 0px;
   padding-left: 10px;
-`
+`;

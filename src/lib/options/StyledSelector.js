@@ -16,7 +16,7 @@ const StyledCheckbox = withStyles({
     },
   },
   checked: {},
-})((props) => <Checkbox color="default" {...props} />);
+})(props => <Checkbox color="default" {...props} />);
 
 const useStyles = makeStyles({
   root: {
@@ -41,9 +41,9 @@ const useStyles = makeStyles({
         fontSize: '14px',
       },
       '& .MuiAutocomplete-endAdornment': {
-        '& button' : {
+        '& button': {
           color: '#2b80f2',
-        }
+        },
       },
     },
     '& label.Mui-focused': {
@@ -65,12 +65,17 @@ const useStyles = makeStyles({
       },
     },
   },
-})
+});
 
 const icon = <CheckBoxOutlineBlankIcon fontSize="small" />;
 const checkedIcon = <CheckBoxIcon fontSize="small" />;
 
-export default function StyledSelector({letOptions, placeholder, onChange, SelectedOption}) {
+export default function StyledSelector({
+  letOptions,
+  placeholder,
+  onChange,
+  SelectedOption,
+}) {
   const classes = useStyles();
 
   return (
@@ -80,20 +85,25 @@ export default function StyledSelector({letOptions, placeholder, onChange, Selec
         className={classes.root}
         onChange={onChange}
         options={letOptions}
-        getOptionLabel={(option) => option.value}
+        getOptionLabel={option => option.value}
         renderOption={(option, { selected }) => (
-          <React.Fragment>
-            <StyledCheckbox 
+          <>
+            <StyledCheckbox
               icon={icon}
               checkedIcon={checkedIcon}
               checked={selected}
-              size='small'
+              size="small"
             />
             {option.value}
-          </React.Fragment>
+          </>
         )}
-        renderInput={(params) => (
-          <TextField {...params} variant="outlined" className={classes.textField} placeholder={placeholder} />
+        renderInput={params => (
+          <TextField
+            {...params}
+            variant="outlined"
+            className={classes.textField}
+            placeholder={placeholder}
+          />
         )}
       />
     </>

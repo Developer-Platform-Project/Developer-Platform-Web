@@ -1,5 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'lib/form/styles';
+import { StatusBar } from 'styles/form/styles';
 
 const MentoSetting = () => {
   return (
@@ -23,10 +23,10 @@ const MentoSetting = () => {
             <p>없음</p>
           </li>
         </ul>
-        <button>알림보기</button>
+        <button type="button">알림보기</button>
       </StatusBar>
     </>
-  )
-}
+  );
+};
 
-export default MentoSetting
+export default MentoSetting;

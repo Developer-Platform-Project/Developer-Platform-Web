@@ -1,12 +1,8 @@
 import React from 'react';
-import { MainContainer } from 'lib/container/styles';
+import { MainContainer } from 'styles/container';
 
 const Like = () => {
-  return (
-    <MainContainer>
-      Like
-    </MainContainer>
-  )
-}
+  return <MainContainer>Like</MainContainer>;
+};
 
 export default Like;

@@ -1,17 +1,15 @@
 import styled from '@emotion/styled';
-import { media } from 'lib/styles/style-utils';
+import { media } from 'styles/style-utils';
 
 export const FormBox = styled.form`
   display: flex;
   flex-direction: column;
-  min-width: 406px !important;
-  padding-bottom: ${(props) => props.paddingBottom};
-  padding-top: ${(props) => props.paddingTop};
-  ${media.mobile`
-      margin-top: 1rem;
-      min-width: 340px !important;
-  `}
-`
+  max-width: 406px;
+  width: 100%;
+  padding-bottom: ${props => props.paddingBottom};
+  padding-top: ${props => props.paddingTop};
+  transition: all 0.2s ease;
+`;
 
 export const RadioBox = styled.div`
   display: flex;
@@ -26,19 +24,19 @@ export const RadioBox = styled.div`
   &:focus-within {
     border: 1.5px solid #2b80f2;
   }
-`
+`;
 
 export const StyledButton = styled.button`
   padding: 0px 14px;
   font-weight: 400;
   color: #fff;
   border-radius: 4px;
-  background-color: ${(props) => props.backgroundColor || '#2b80f2'};
-  width: ${(props) => props.width || '100%'};
-  height: ${(props) => props.height || '48px'};
-  font-size: ${(props) => props.fontSize || '16px'};
-  margin-top: ${(props) => props.marginTop || "30px"};
-`
+  background-color: ${props => props.backgroundColor || '#2b80f2'};
+  width: ${props => props.width || '100%'};
+  height: ${props => props.height || '48px'};
+  font-size: ${props => props.fontSize || '16px'};
+  margin-top: ${props => props.marginTop || '30px'};
+`;
 
 export const ContentHeader = styled.div`
   display: flex;
@@ -47,13 +45,13 @@ export const ContentHeader = styled.div`
   margin-bottom: 28px;
   justify-content: space-between;
   align-items: center;
-`
+`;
 
 export const ButtonBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`
+`;
 
 export const ViewMore = styled.button`
   background-color: #ccc;
@@ -63,7 +61,7 @@ export const ViewMore = styled.button`
   font-size: 14px;
   border-radius: 6px;
   margin-left: 8px;
-`
+`;
 
 export const StatusBar = styled.div`
   display: flex;
@@ -74,7 +72,7 @@ export const StatusBar = styled.div`
   height: 68px;
   padding: 0px 20px;
   border-radius: 6px;
-  background-color: #121D3E;
+  background-color: #121d3e;
   color: #fff;
   & ul {
     display: flex;
@@ -102,7 +100,7 @@ export const StatusBar = styled.div`
     line-height: 40px;
     color: #eaeaea;
   }
-`
+`;
 
 export const Nodata = styled.div`
   display: flex;
@@ -113,8 +111,8 @@ export const Nodata = styled.div`
   margin: 10px;
   border: 1px solid #eaeaea;
   border-radius: 8px;
-  box-shadow: 0 3px 6px 0 rgba(150,150,150,0.05);
+  box-shadow: 0 3px 6px 0 rgba(150, 150, 150, 0.05);
   color: #999;
   font-size: 15px;
   font-weight: 400;
-`
+`;

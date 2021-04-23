@@ -1,12 +1,8 @@
-import React from 'react'
-import { MainContainer } from 'lib/container/styles';
+import React from 'react';
+import { MainContainer } from 'styles/container';
 
 const Mento = () => {
-  return (
-    <MainContainer>
-      Mento
-    </MainContainer>
-  )
-}
+  return <MainContainer>Mento</MainContainer>;
+};
 
-export default Mento
+export default Mento;
