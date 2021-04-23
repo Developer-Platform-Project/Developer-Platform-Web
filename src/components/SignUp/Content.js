@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
-import { FormBox, StyledButton } from 'styles/form/styles';
+import { FlexBox, FormBox, StyledButton } from 'styles/form/styles';
 import { LoginTitle, ErrorMessage, TextBox } from 'styles/typography';
 import StyledInput from 'styles/form/StyledInput';
 import CustomSelect from 'styles/form/CustomSelect';
@@ -35,7 +35,7 @@ const Content = ({ history }) => {
   }, []);
 
   return (
-    <>
+    <FlexBox>
       <LoginTitle>회원가입</LoginTitle>
       <FormBox onSubmit={handleSubmit(onSubmit)}>
         {/** ***************** 이메일 ****************** */}
@@ -151,7 +151,7 @@ const Content = ({ history }) => {
           <span>로그인 하기</span>
         </Link>
       </TextBox>
-    </>
+    </FlexBox>
   );
 };
 

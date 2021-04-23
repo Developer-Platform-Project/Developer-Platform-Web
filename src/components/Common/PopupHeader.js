@@ -26,7 +26,7 @@ const MenuText = styled.div`
 
 const StyledMenu = withStyles({
   paper: {
-    marginTop: '9px',
+    marginTop: '5px',
     backgroundColor: '#090C1A',
     borderTop: '1px solid #39444D',
     borderRadius: '0px',

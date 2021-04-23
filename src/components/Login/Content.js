@@ -5,7 +5,7 @@ import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { setUserInfo } from 'modules/common';
 import { TextBox, ErrorMessage, LoginTitle } from 'styles/typography';
-import { FormBox, StyledButton } from 'styles/form/styles';
+import { FlexBox, FormBox, StyledButton } from 'styles/form/styles';
 import StyledCheckbox from 'styles/form/StyledCheckbox';
 import StyledInput from 'styles/form/StyledInput';
 import axios from 'axios';
@@ -87,7 +87,7 @@ const Content = ({ history }) => {
   };
 
   return (
-    <>
+    <FlexBox>
       <LoginTitle>시작하기</LoginTitle>
       <FormBox onSubmit={handleSubmit(onSubmit)}>
         <StyledInput
@@ -151,7 +151,7 @@ const Content = ({ history }) => {
           </Link>
         </TextBox>
       </FormBox>
-    </>
+    </FlexBox>
   );
 };
 

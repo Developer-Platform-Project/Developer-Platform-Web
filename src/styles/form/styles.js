@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
-import { media } from 'styles/style-utils';
+
+export const FlexBox = styled.div`
+  max-width: 408px;
+  width: 100%;
+`;
 
 export const FormBox = styled.form`
   display: flex;
   flex-direction: column;
-  max-width: 406px;
   width: 100%;
   padding-bottom: ${props => props.paddingBottom};
   padding-top: ${props => props.paddingTop};

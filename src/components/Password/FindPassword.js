@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { withRouter } from 'react-router';
 import { Link } from 'react-router-dom';
 import { MainContainer, FlexContainer } from 'styles/container';
-import { FormBox, StyledButton } from 'styles/form/styles';
+import { FlexBox, FormBox, StyledButton } from 'styles/form/styles';
 import {
   LoginTitle,
   TitleDescription,
@@ -32,49 +32,51 @@ const FindPassword = () => {
   return (
     <MainContainer>
       <FlexContainer>
-        <LoginTitle marginBottom="10px">계정찾기</LoginTitle>
-        <TitleDescription>
-          가입 시 입력한 이메일 주소로 비밀번호 재설정 링크를 보내드립니다.
-        </TitleDescription>
-        <FormBox onSubmit={handleSubmit(onSubmit)} width="408px">
-          <StyledInput
-            label="이름"
-            name="name"
-            type="text"
-            placeholder="이름"
-            ref={register({
-              required: true,
-            })}
-          />
-          {errors.name && errors.name.type === 'required' && (
-            <ErrorMessage>이름을 입력해주세요.</ErrorMessage>
-          )}
+        <FlexBox>
+          <LoginTitle marginBottom="10px">계정찾기</LoginTitle>
+          <TitleDescription>
+            가입 시 입력한 이메일 주소로 비밀번호 재설정 링크를 보내드립니다.
+          </TitleDescription>
+          <FormBox onSubmit={handleSubmit(onSubmit)}>
+            <StyledInput
+              label="이름"
+              name="name"
+              type="text"
+              placeholder="이름"
+              ref={register({
+                required: true,
+              })}
+            />
+            {errors.name && errors.name.type === 'required' && (
+              <ErrorMessage>이름을 입력해주세요.</ErrorMessage>
+            )}
 
-          <StyledInput
-            label="이메일"
-            name="email"
-            type="text"
-            placeholder="이메일"
-            ref={register({
-              required: true,
-              pattern: /^\S+@\S+$/i,
-            })}
-          />
-          {errors.email && errors.email.type === 'required' && (
-            <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>
-          )}
-          {errors.email && errors.email.type === 'pattern' && (
-            <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>
-          )}
+            <StyledInput
+              label="이메일"
+              name="email"
+              type="text"
+              placeholder="이메일"
+              ref={register({
+                required: true,
+                pattern: /^\S+@\S+$/i,
+              })}
+            />
+            {errors.email && errors.email.type === 'required' && (
+              <ErrorMessage>이메일을 입력해주세요.</ErrorMessage>
+            )}
+            {errors.email && errors.email.type === 'pattern' && (
+              <ErrorMessage>이메일 형식이 옳바르지 않습니다.</ErrorMessage>
+            )}
 
-          <StyledButton type="submit"> 재설정 메일 보내기 </StyledButton>
-        </FormBox>
-        <TextBox>
-          <span>비밀번호를 재설정 하셨나요?</span>
-          <Link to="/login">
-            <span>로그인 하기</span>
-          </Link>
-        </TextBox>
+            <StyledButton type="submit"> 재설정 메일 보내기 </StyledButton>
+          </FormBox>
+          <TextBox>
+            <span>비밀번호를 재설정 하셨나요?</span>
+            <Link to="/login">
+              <span>로그인 하기</span>
+            </Link>
+          </TextBox>
+        </FlexBox>
       </FlexContainer>
     </MainContainer>
   );
